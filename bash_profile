@@ -5,6 +5,7 @@ export PATH=/usr/bin/git:$PATH
 # Colors!
 export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
+
 # TODO: Work on these. Rather, figure out HOW to work on these -_-
 export LSCOLORS=bxBxhxDxfxhxhxhxhxcxcx
 
