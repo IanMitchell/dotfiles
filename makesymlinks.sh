@@ -8,7 +8,7 @@
 
 dir=~/code/dotfiles                    # dotfiles directory
 olddir=~/code/dotfiles_old             # old dotfiles backup directory
-files="bashrc gemrc bash_profile"    # list of files/folders to symlink in homedir
+files="inputrc bashrc gemrc bash_profile"    # list of files/folders to symlink in homedir
 
 ##########
 
