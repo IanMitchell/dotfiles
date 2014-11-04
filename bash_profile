@@ -41,6 +41,15 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+# Functions
+function dataurl() {
+  local mimeType=$(file -b --mime-type "$1");
+    if [[ $mimeType == text/* ]]; then
+      mimeType="${mimeType};charset=utf-8";
+    fi
+  echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
+}
+
 
 # OSX Aliases
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
