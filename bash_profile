@@ -35,7 +35,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 OWNER_PS1="\[${COLOR_CYAN}\]\u"
 DIVIDER_PS1="\[${COLOR_DEFAULT}\]@"
 PATH_PS1="\[${COLOR_GREEN}\]\w"
-GIT_PS1="if [ -d .git ]; then echo \"\[${COLOR_ORANGE}\]\$(__git_ps1)\"; fi"
+GIT_PS1="if [ -n $(git rev-parse --git-dir 2> /dev/null) ]; then echo \"\[${COLOR_ORANGE}\]\$(__git_ps1)\"; fi"
 PROMPT_PS1="\[${COLOR_DEFAULT}\]$ "
 export PS1="${OWNER_PS1}${DIVIDER_PS1}${PATH_PS1}\`${GIT_PS1}\`${PROMPT_PS1}"
 

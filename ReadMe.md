@@ -8,6 +8,8 @@ I use a custom blue/green color scheme. I also set my prompt to follow a `userna
 
 Specific to OSX, I've added aliases for `fixopenwith` and `showlibrary`. Show Library makes the `~/Library` folder visible, while fixopenwith cleans up the right click "Open With" context menu and removes duplicate entries.
 
+**Part of my prompt is dependent on `bash-completion` being installed (Use [Homebrew](http://brew.sh/)).**
+
 ## Inputrc
 
 The only change here is making tab-autocomplete case insensitive.
