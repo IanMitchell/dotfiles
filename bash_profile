@@ -13,32 +13,6 @@ export GREP_OPTIONS='--color=auto'
 # TODO: Work on these. Rather, figure out HOW to work on these -_-
 export LSCOLORS=bxBxhxDxfxhxhxhxhxcxcx
 
-export COLOR_DEFAULT='\e[0m'
-export COLOR_BLACK='\e[0;30m'
-export COLOR_ORANGE='\e[0;31m'
-export COLOR_BOLD_RED='\e[1;31m'
-export COLOR_GREEN='\e[0;32m'
-export COLOR_BOLD_GREEN='\e[1;32m'
-export COLOR_YELLOW='\e[0;33m'
-export COLOR_BOLD_YELLOW='\e[1;33m'
-export COLOR_PURPLE='\e[0;34m'
-export COLOR_BOLD_PURPLE='\e[1;34m'
-export COLOR_PINK='\e[0;35m'
-export COLOR_BOLD_PINK='\e[1;35m'
-export COLOR_CYAN='\e[0;36m'
-export COLOR_BOLD_CYAN='\e[1;36m'
-export COLOR_LIGHT_GRAY='\e[0;37m'
-export COLOR_BOLD_LIGHT_GRAY='\e[1;37m'
-
-# Prompt Setup and Colors ('Seattle' theme)
-export GIT_PS1_SHOWDIRTYSTATE=1
-OWNER_PS1="\[${COLOR_CYAN}\]\u"
-DIVIDER_PS1="\[${COLOR_DEFAULT}\]@"
-PATH_PS1="\[${COLOR_GREEN}\]\w"
-GIT_PS1="if [ -n $(git rev-parse --git-dir 2> /dev/null) ]; then echo \"\[${COLOR_ORANGE}\]\$(__git_ps1)\"; fi"
-PROMPT_PS1="\[${COLOR_DEFAULT}\]$ "
-export PS1="${OWNER_PS1}${DIVIDER_PS1}${PATH_PS1}\`${GIT_PS1}\`${PROMPT_PS1}"
-
 # Atom
 export EDITOR='atom -w'
 
@@ -47,18 +21,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-# Functions
-function dataurl() {
-  local mimeType=$(file -b --mime-type "$1");
-    if [[ $mimeType == text/* ]]; then
-      mimeType="${mimeType};charset=utf-8";
-    fi
-  echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
-}
-
 
 # OSX Aliases
-alias fix_open_with='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 alias show_library='chflags nohidden ~/Library/'
 alias open_system_icons='open /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/'
 
@@ -67,3 +31,87 @@ alias open_system_icons='open /System/Library/CoreServices/CoreTypes.bundle/Cont
 
 # rbenv
 eval "$(rbenv init -)"
+
+
+prompt_git() {
+  local s=""
+  local branchName=""
+
+  # check if the current directory is in a git repository
+  if [ $(git rev-parse --is-inside-work-tree &>/dev/null; printf "%s" $?) == 0 ]; then
+    # check if the current directory is in .git before running git checks
+    if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == "false" ]; then
+      # ensure index is up to date
+      git update-index --really-refresh  -q &>/dev/null
+
+      # check for uncommitted changes in the index
+      if ! $(git diff --quiet --ignore-submodules --cached); then
+        s="$s*";
+      fi
+
+      # check for unstaged changes
+      if ! $(git diff-files --quiet --ignore-submodules --); then
+        s="$s+";
+      fi
+
+      # check for untracked files
+      if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+        s="$s?";
+      fi
+
+      # check for stashed files
+      if $(git rev-parse --verify refs/stash &>/dev/null); then
+        s="$s$";
+      fi
+    fi
+
+    # get the short symbolic ref
+    # if HEAD isn't a symbolic ref, get the short SHA
+    # otherwise, just give up
+    branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+                git rev-parse --short HEAD 2> /dev/null || \
+                printf "(unknown)")"
+
+    [ -n "$s" ] && s=" [$s]"
+
+    printf "%s" "$1$branchName$s"
+  else
+    return
+  fi
+}
+
+set_prompts() {
+  local reset="\e[0m"
+  local bold="\e[1m"
+  local black="\e[1;30m"
+  local red="\e[1;31m"
+  local green="\e[1;32m"
+  local yellow="\e[1;33m"
+  local blue="\e[1;34m"
+  local purple="\e[1;35m"
+  local cyan="\e[1;36m"
+  local white="\e[1;37m"
+
+  local hostStyle="\[$yellow\]"
+  local userStyle="\[$bold$blue\]"
+
+  # build the prompt
+  PS1="\n" # newline
+  PS1+="\[$userStyle\]\u" # username
+
+  # connected via ssh
+  if [[ "$SSH_TTY" ]]; then
+    PS1+="@\[$hostStyle\]\h" # host
+  fi
+
+  PS1+="\[$reset$white\] in "
+  PS1+="\[$green\]\w" # working directory
+  PS1+="\$(prompt_git \"$white on $purple\")" # git repository details
+  PS1+="\n"
+  PS1+="\[$reset$white\]\$ \[$reset\]" # $ (and reset color)
+
+  export PS1
+}
+
+set_prompts
+unset set_prompts
