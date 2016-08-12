@@ -10,6 +10,10 @@ export PATH=/usr/bin/git:$PATH
 export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 
+# Encoding Fixes
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # TODO: Work on these. Rather, figure out HOW to work on these -_-
 export LSCOLORS=bxBxhxDxfxhxhxhxhxcxcx
 
