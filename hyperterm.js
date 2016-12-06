@@ -13,7 +13,7 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: '#000',
+    backgroundColor: 'rgb(29,29,29)',
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -57,11 +57,11 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyperterm-blink',
-    'hyperborder',
     'hypercwd',
     'hyperlinks',
     'hyperterm-bold-tab',
-    'hyperterm-tab-icons'
+    'hyperterm-tab-icons',
+    // 'hyperterm-one-light',
   ],
 
   // in development, you can create a directory under

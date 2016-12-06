@@ -14,8 +14,8 @@ export GREP_OPTIONS='--color=auto'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# TODO: Work on these. Rather, figure out HOW to work on these -_-
-export LSCOLORS=bxBxhxDxfxhxhxhxhxcxcx
+# See: http://geoff.greer.fm/lscolors/
+export LSCOLORS=Cxbxgxgxfxxgedabagacad
 
 # Atom
 export EDITOR='atom -w'
@@ -87,17 +87,17 @@ prompt_git() {
 set_prompts() {
   local reset="\e[0m"
   local bold="\e[1m"
-  local black="\e[1;30m"
-  local red="\e[1;31m"
-  local green="\e[1;32m"
-  local yellow="\e[1;33m"
-  local blue="\e[1;34m"
-  local purple="\e[1;35m"
-  local cyan="\e[1;36m"
-  local white="\e[1;37m"
+  local black="\e[0;30m"
+  local red="\e[0;31m"
+  local green="\e[0;32m"
+  local yellow="\e[0;33m"
+  local blue="\e[0;34m"
+  local purple="\e[0;35m"
+  local cyan="\e[0;36m"
+  local white="\e[0;37m"
 
   local hostStyle="\[$yellow\]"
-  local userStyle="\[$bold$blue\]"
+  local userStyle="\[$blue$bold\]"
 
   # build the prompt
   PS1="\n" # newline
@@ -108,11 +108,11 @@ set_prompts() {
     PS1+="@\[$hostStyle\]\h" # host
   fi
 
-  PS1+="\[$reset$white\] in "
-  PS1+="\[$green\]\w" # working directory
-  PS1+="\$(prompt_git \"$white on $purple\")" # git repository details
+  PS1+="\[$reset\] in "
+  PS1+="\[$green$bold\]\w" # working directory
+  PS1+="\$(prompt_git \"$reset on $purple$bold\")" # git repository details
   PS1+="\n"
-  PS1+="\[$reset$white\]➜ \[$reset\]" # $ (and reset color)
+  PS1+="\[$reset$green$bold\]➜ \[$reset\]" # $ (and reset color)
 
   export PS1
 }
