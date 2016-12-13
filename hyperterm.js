@@ -13,7 +13,9 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: 'rgb(29,29,29)',
+    backgroundColor: 'rgba(29,29,29,0.5)',
+
+    vibrancyType: 'dark',
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -61,6 +63,7 @@ module.exports = {
     'hyperlinks',
     'hyperterm-bold-tab',
     'hyperterm-tab-icons',
+    'hyper-simple-vibrancy',
     // 'hyperterm-one-light',
   ],
 
