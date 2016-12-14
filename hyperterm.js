@@ -13,9 +13,7 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: 'rgba(29,29,29,0.5)',
-
-    vibrancyType: 'dark',
+    backgroundColor: '#000000',
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -31,24 +29,24 @@ module.exports = {
 
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
-    colors: [
-      '#000000', // '#000000',
-      '#C75646', // '#ff0000',
-      '#8EB33B', // '#33ff00',
-      '#D0B03C', // '#ffff00',
-      '#72B3CC', // '#0066ff',
-      '#C8A0D1', // '#cc00ff',
-      '#218693', // '#00ffff',
-      '#B0B0B0', // '#d0d0d0',
-      '#5D5D5D', // '#808080',
-      '#E09690', // '#ff0000',
-      '#CDEE69', // '#33ff00',
-      '#FFE377', // '#ffff00',
-      '#9CD9F0', // '#0066ff',
-      '#FBB1F9', // '#cc00ff',
-      '#77DFD8', // '#00ffff',
-      '#F7F7F7'  // '#ffffff'
-    ]
+    colors: {
+      black: '#000000',
+      red: '#ff0000',
+      green: '#33ff00',
+      yellow: '#ffff00',
+      blue: '#0066ff',
+      magenta: '#cc00ff',
+      cyan: '#00ffff',
+      white: '#d0d0d0',
+      lightBlack: '#808080',
+      lightRed: '#ff0000',
+      lightGreen: '#33ff00',
+      lightYellow: '#ffff00',
+      lightBlue: '#0066ff',
+      lightMagenta: '#cc00ff',
+      lightCyan: '#00ffff',
+      lightWhite: '#ffffff'
+    },
   },
 
   // a list of plugins to fetch and install from npm
@@ -63,8 +61,7 @@ module.exports = {
     'hyperlinks',
     'hyperterm-bold-tab',
     'hyperterm-tab-icons',
-    'hyper-simple-vibrancy',
-    // 'hyperterm-one-light',
+    'hyper-smyck'
   ],
 
   // in development, you can create a directory under
