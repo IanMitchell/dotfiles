@@ -13,7 +13,7 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: '#000000',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -58,14 +58,15 @@ module.exports = {
   plugins: [
     'hyperterm-blink',
     'hypercwd',
-    'hyperlinks',
     'hyperterm-bold-tab',
     'hyperterm-tab-icons',
-    'hyper-smyck'
+    'hyper-statusline'
   ],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: []
+  localPlugins: [
+    'hyper-smyck'
+  ]
 };
