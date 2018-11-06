@@ -3,7 +3,8 @@
 
 # Path
 export PATH=/usr/bin/git:$PATH
-
+export PATH="$HOME/.nodenv/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
 
 
 # Colors!
@@ -33,8 +34,9 @@ alias open_system_icons='open /System/Library/CoreServices/CoreTypes.bundle/Cont
 # SSH Autocomplete
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
-# rbenv
+# rbenv and nodenv init
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"
 
 
 prompt_git() {
