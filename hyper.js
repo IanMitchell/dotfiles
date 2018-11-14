@@ -45,7 +45,7 @@ module.exports = {
       lightBlue: '#0066ff',
       lightMagenta: '#cc00ff',
       lightCyan: '#00ffff',
-      lightWhite: '#ffffff'
+      lightWhite: '#ffffff',
     },
   },
 
@@ -59,14 +59,13 @@ module.exports = {
     'hyperterm-blink',
     'hypercwd',
     'hyperterm-bold-tab',
-    'hyperterm-tab-icons',
-    'hyper-statusline'
+    'hyper-tab-icons',
+    'hyper-statusline',
+    'hyper-smyck',
   ],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: [
-    'hyper-smyck'
-  ]
+  localPlugins: [],
 };
