@@ -2,7 +2,7 @@
 
 My personal dotfiles for all my machines! I use these on macOS, Windows WSL2, and GitHub Codespaces.
 
-It uses [Starship](https://starship.rs/), [ZSH], [bat](https://github.com/sharkdp/bat), [exa](https://github.com/ogham/exa), [tldr](https://tldr.sh), and [delta](https://github.com/dandavison/delta).
+It uses zsh, [Starship](https://starship.rs/), [bat](https://github.com/sharkdp/bat), [exa](https://github.com/ogham/exa), [tldr](https://tldr.sh), and [delta](https://github.com/dandavison/delta).
 
 ## Usage
 
