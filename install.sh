@@ -29,7 +29,8 @@ brew install exa
 brew install starship
 
 echo "Setting zsh as default shell"
-chsh -s /usr/local/bin/bash
+command -v zsh | sudo tee -a /etc/shells
+chsh -s "$(command -v zsh)" "${USER}"
 
 # Update and Upgrade
 echo "Updating and upgrading Homebrew..."; echo;
@@ -41,7 +42,9 @@ brew cleanup
 
 echo "Configuring Starship"
 mkdir -p ~/.config &&
-cp ~/.config/starship.toml ~/.config/starship.toml.backup
+if test -f "$HOME/.config/starship.toml"; then
+  mv ~/.config/starship.toml ~/.config/starship.toml.backup
+fi
 cp starship.toml ~/.config/starship.toml
 
 echo "Installing Volta"
@@ -54,13 +57,19 @@ echo "Installing tldr"
 volta install tldr
 
 echo "Copying .gemrc"
-mv .gemrc gemrc.backup
-cp gemrc .gemrc
+if test -f "$HOME/.gemrc"; then
+  mv ~/.gemrc ~/gemrc.backup
+fi
+cp gemrc ~/.gemrc
 
 echo "Copying .gitconfig"
-mv .gitconfig gitconfig.backup
-cp gitconfig .gitconfig
+if test -f "$HOME/.gitconfig"; then
+  mv ~/.gitconfig ~/gitconfig.backup
+fi
+cp gitconfig ~/.gitconfig
 
 echo "Copying .zshrc"
-mv .zshrc zshrc.backup
-cp zshrc .zshrc
+if test -f "$HOME/.zshrc"; then
+  mv ~/.zshrc ~/zshrc.backup
+fi
+cp zshrc ~/.zshrc

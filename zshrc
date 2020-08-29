@@ -1,3 +1,9 @@
+# Linux Homebrew loading
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
+
+
 # Helpers
 alias count_files='find . -type f | wc -l'
 
@@ -25,8 +31,3 @@ if [ "$(command -v bat)" ]; then
 fi
 
 eval "$(starship init zsh)"
-
-# Linux Homebrew loading
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-fi
