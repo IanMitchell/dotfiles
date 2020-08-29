@@ -7,10 +7,17 @@ echo "Checking if Homebrew is installed...";
 if test ! $(which brew); then
   echo "Installing Homebrew...";
   yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    sudo apt-get install build-essential
+    brew install gcc
+  fi
 else
   echo "Homebrew is already installed...";
 fi
 
+brew install coreutils
 brew install zsh
 brew install git
 brew install git-delta
@@ -22,7 +29,7 @@ brew install exa
 brew install starship
 
 echo "Setting zsh as default shell"
-chsh -s /usr/local/bin/zsh
+chsh -s /usr/local/bin/bash
 
 # Update and Upgrade
 echo "Updating and upgrading Homebrew..."; echo;
