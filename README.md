@@ -10,4 +10,4 @@ Clone this repository to your machine and then run the following command:
 
     $ ./install
 
-Any existing dotfiles will be saved under `~/dotfiles_backup`.
+Any existing dotfiles will be saved under `~/<name>.backup`
