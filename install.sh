@@ -52,7 +52,7 @@ fi
 cp starship.toml ~/.config/starship.toml
 
 echo "Installing Volta"
-curl https://get.volta.sh | sh
+curl https://get.volta.sh | bash
 
 echo "Installing Latest Node.js"
 volta install node@latest
