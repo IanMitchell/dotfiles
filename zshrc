@@ -10,6 +10,7 @@ fi
 
 # Helpers
 alias count_files='find . -type f | wc -l'
+alias start_postgres='sudo service postgresql start'
 
 # Add Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"

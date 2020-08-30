@@ -12,6 +12,9 @@ if test ! $(which brew); then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     sudo apt-get install build-essential
     brew install gcc
+
+    echo "Installing PostgreSQL"
+    sudo apt install postgresql postgresql-contrib
   fi
 else
   echo "Homebrew is already installed...";
@@ -25,12 +28,15 @@ brew install perl -s
 brew install zsh
 brew install git
 brew install git-delta
-brew install postgresql
 brew install rbenv
 brew install ruby-build
 brew install bat
 brew install exa
 brew install starship
+
+if [ "$(uname)" == "Darwin" ]; then
+  brew install postgresql
+fi
 
 echo "Setting zsh as default shell"
 command -v zsh | sudo tee -a /etc/shells
