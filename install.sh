@@ -52,6 +52,7 @@ curl https://get.volta.sh | sh
 
 echo "Installing Latest Node.js"
 volta install node@latest
+volta install npm-merge-driver
 
 echo "Installing tldr"
 volta install tldr
