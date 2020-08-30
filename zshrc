@@ -1,3 +1,8 @@
+# Oh My Zsh
+export ZSH="/home/ian/.oh-my-zsh"
+plugins=(git ssh-agent)
+source $ZSH/oh-my-zsh.sh
+
 # Linux Homebrew loading
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -30,13 +35,5 @@ if [ "$(command -v bat)" ]; then
   unalias -m 'cat'
   alias cat='bat -pp --theme="Monokai Extended Bright"'
 fi
-
-# Better History Searching
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
 
 eval "$(starship init zsh)"
