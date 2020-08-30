@@ -18,6 +18,10 @@ else
 fi
 
 brew install coreutils
+
+# Fixes a bug with perl: https://github.com/Homebrew/linuxbrew-core/issues/4808
+brew install perl -s
+
 brew install zsh
 brew install git
 brew install git-delta
