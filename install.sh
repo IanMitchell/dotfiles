@@ -53,6 +53,7 @@ cp starship.toml ~/.config/starship.toml
 
 echo "Installing Volta"
 curl https://get.volta.sh | bash
+source ~/.bashrc
 
 echo "Installing Latest Node.js"
 volta install node@latest
@@ -61,20 +62,22 @@ volta install npm-merge-driver
 echo "Installing tldr"
 volta install tldr
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 echo "Copying .gemrc"
 if test -f "$HOME/.gemrc"; then
   mv ~/.gemrc ~/gemrc.backup
 fi
-cp gemrc ~/.gemrc
+ln -s "$DIR/gemrc" ~/.gemrc
 
 echo "Copying .gitconfig"
 if test -f "$HOME/.gitconfig"; then
   mv ~/.gitconfig ~/gitconfig.backup
 fi
-cp gitconfig ~/.gitconfig
+ln -s "$DIR/gitconfig" ~/.gitconfig
 
 echo "Copying .zshrc"
 if test -f "$HOME/.zshrc"; then
   mv ~/.zshrc ~/zshrc.backup
 fi
-cp zshrc ~/.zshrc
+ln -s "$DIR/zshrc" ~/.zshrc
