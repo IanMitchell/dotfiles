@@ -44,13 +44,6 @@ yes | brew upgrade
 # Remove outdated versions from the cellar
 brew cleanup
 
-echo "Configuring Starship"
-mkdir -p ~/.config &&
-if test -f "$HOME/.config/starship.toml"; then
-  mv ~/.config/starship.toml ~/.config/starship.toml.backup
-fi
-cp starship.toml ~/.config/starship.toml
-
 echo "Installing Volta"
 curl https://get.volta.sh | bash
 source ~/.bashrc
@@ -63,6 +56,13 @@ echo "Installing tldr"
 volta install tldr
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+echo "Configuring Starship"
+mkdir -p ~/.config &&
+if test -f "$HOME/.config/starship.toml"; then
+  mv ~/.config/starship.toml ~/.config/starship.toml.backup
+fi
+ln -s "$DIR/starship.toml" ~/.config/starship.toml
 
 echo "Copying .gemrc"
 if test -f "$HOME/.gemrc"; then
