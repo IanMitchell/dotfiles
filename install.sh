@@ -30,6 +30,7 @@ brew install git
 brew install git-delta
 brew install rbenv
 brew install ruby-build
+brew install ripgrep
 brew install bat
 brew install exa
 brew install starship
