@@ -34,6 +34,7 @@ brew install ripgrep
 brew install bat
 brew install exa
 brew install starship
+brew install gh
 
 if [ "$(uname)" == "Darwin" ]; then
   brew install postgresql
