@@ -15,6 +15,9 @@ if test ! $(which brew); then
 
     echo "Installing PostgreSQL"
     sudo apt install postgresql postgresql-contrib
+
+    echo "Installing net-tools"
+    sudo apt install net-tools
   fi
 else
   echo "Homebrew is already installed...";
