@@ -1,6 +1,6 @@
 [user]
-  name = Ian Mitchell
-	email = ian.mitchell@hey.com
+	name = Ian Mitchell
+	email = ian.mitchell@hey.com 
 
 [filter "lfs"]
 	required = true
@@ -9,16 +9,22 @@
 	process = git-lfs filter-process
 
 [core]
-  pager = delta
+	pager = delta
 
 [delta]
-  plus-color = "#012800"
-  minus-color = "#340001"
-  syntax-theme = Monokai Extended
-  side-by-side = true
+	plus-color = "#012800"
+	minus-color = "#340001"
+	syntax-theme = Monokai Extended
+	side-by-side = true
 
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [init]
 	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[diff]
+	colorMoved = zebra
