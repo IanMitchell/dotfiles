@@ -38,6 +38,8 @@ brew install bat
 brew install exa
 brew install starship
 brew install gh
+brew tap heroku/brew
+brew install heroku
 
 if [ "$(uname)" == "Darwin" ]; then
   brew install postgresql
