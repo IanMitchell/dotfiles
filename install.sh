@@ -2,10 +2,10 @@
 
 set -e
 
-echo "Checking if Homebrew is installed...";
+echo "Checking if Homebrew is installed..."
 
 if test ! $(which brew); then
-  echo "Installing Homebrew...";
+  echo "Installing Homebrew..."
   yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -20,7 +20,7 @@ if test ! $(which brew); then
     sudo apt install net-tools
   fi
 else
-  echo "Homebrew is already installed...";
+  echo "Homebrew is already installed..."
 fi
 
 brew install coreutils
@@ -53,7 +53,7 @@ echo "Installing Oh My Zsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Update and Upgrade
-echo "Updating and upgrading Homebrew..."; echo;
+echo "Updating and upgrading Homebrew..."
 yes | brew update
 yes | brew upgrade
 
