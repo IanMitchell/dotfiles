@@ -11,6 +11,7 @@ fi
 # Helpers
 alias count_files='find . -type f | wc -l'
 alias start_postgres='sudo service postgresql start'
+alias wsl_psql='sudo su - postgres psql'
 
 # Pull in Company helpers if they exist (don't want them in dotfiles)
 if test -f "$HOME/.company_aliases"; then
@@ -42,4 +43,15 @@ if [ "$(command -v bat)" ]; then
   alias cat='bat -pp --theme="Monokai Extended Bright"'
 fi
 
+# Load Autocompletions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 eval "$(starship init zsh)"
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/home/ian/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
