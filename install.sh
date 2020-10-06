@@ -10,6 +10,7 @@ if test ! $(which brew); then
 
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    sudo apt-get update
     sudo apt-get install build-essential
     brew install gcc
 
