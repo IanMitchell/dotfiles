@@ -17,9 +17,6 @@ if test ! $(which brew); then
     echo "Installing developer tools..."
     sudo apt-get -y install build-essential
 
-    echo "Installing PostgreSQL"
-    sudo apt-get -y install postgresql postgresql-contrib
-
     echo "Installing net-tools"
     sudo apt-get -y install net-tools
   fi
