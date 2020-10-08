@@ -12,17 +12,17 @@ if test ! $(which brew); then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     
     echo "Running apt-get update..."
-    yes | sudo apt-get update
+    sudo apt-get -y update
     
     echo "Installing developer tools..."
-    sudo apt-get install build-essential
+    sudo apt-get -y install build-essential
     brew install gcc
 
     echo "Installing PostgreSQL"
-    yes | sudo apt install postgresql postgresql-contrib
+    sudo apt-get -y install postgresql postgresql-contrib
 
     echo "Installing net-tools"
-    sudo apt install net-tools
+    sudo apt-get -y install net-tools
   fi
 else
   echo "Homebrew is already installed..."
