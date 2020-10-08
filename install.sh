@@ -16,7 +16,6 @@ if test ! $(which brew); then
     
     echo "Installing developer tools..."
     sudo apt-get -y install build-essential
-    brew install gcc
 
     echo "Installing PostgreSQL"
     sudo apt-get -y install postgresql postgresql-contrib
