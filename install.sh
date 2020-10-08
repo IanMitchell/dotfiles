@@ -49,9 +49,10 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install postgresql
 fi
 
-echo "Setting zsh as default shell"
-command -v zsh | sudo tee -a /etc/shells
-chsh -s "$(command -v zsh)" "${USER}"
+# I believe oh-my-zsh does this for me
+# echo "Setting zsh as default shell"
+# command -v zsh | sudo tee -a /etc/shells
+# chsh -s "$(command -v zsh)" "${USER}"
 
 if [ ! -d "$HOME/.oh-my-zsh" ] ; then
   echo "Installing Oh My Zsh"
