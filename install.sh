@@ -19,7 +19,7 @@ if test ! $(which brew); then
     brew install gcc
 
     echo "Installing PostgreSQL"
-    sudo apt install postgresql postgresql-contrib
+    yes | sudo apt install postgresql postgresql-contrib
 
     echo "Installing net-tools"
     sudo apt install net-tools
