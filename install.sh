@@ -53,8 +53,10 @@ echo "Setting zsh as default shell"
 command -v zsh | sudo tee -a /etc/shells
 chsh -s "$(command -v zsh)" "${USER}"
 
-echo "Installing Oh My Zsh"
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d "$HOME/.oh-my-zsh" ] ; then
+  echo "Installing Oh My Zsh"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Update and Upgrade
 echo "Updating and upgrading Homebrew..."
