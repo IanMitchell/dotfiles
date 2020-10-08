@@ -12,7 +12,7 @@ if test ! $(which brew); then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     
     echo "Running apt-get update..."
-    sudo apt-get update
+    yes | sudo apt-get update
     
     echo "Installing developer tools..."
     sudo apt-get install build-essential
@@ -56,7 +56,7 @@ fi
 
 if [ ! -d "$HOME/.oh-my-zsh" ] ; then
   echo "Installing Oh My Zsh"
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Update and Upgrade
