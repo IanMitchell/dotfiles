@@ -69,7 +69,11 @@ brew cleanup
 
 echo "Installing Volta"
 curl https://get.volta.sh | bash
-source ~/.bashrc
+
+# I can't seem to get Volta to work without this
+VOLTA_HOME="$HOME/.volta"
+PATH="$VOLTA_HOME/bin:$PATH"
+grep --silent "$VOLTA_HOME/bin" <<< $PATH || PATH="$VOLTA_HOME/bin:$PATH"
 
 echo "Installing Latest Node.js"
 volta install node@latest
