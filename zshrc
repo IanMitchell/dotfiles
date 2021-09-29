@@ -13,10 +13,26 @@ alias count_files='find . -type f | wc -l'
 alias start_postgres='sudo service postgresql start'
 alias wsl_psql='sudo su - postgres psql'
 
-# Pull in Company helpers if they exist (don't want them in dotfiles)
-if test -f "$HOME/.company_aliases"; then
+# has_shipped `shipped_commit` `commit`
+function has_shipped() {
+  if git merge-base --is-ancestor "$2" "$1"; then
+    echo "Commit has shipped"
+  else
+    echo "Commit has not shipped"
+  fi
+}
+
+# findport `port`
+function findport() {
+  lsof -nP -iTCP -sTCP:LISTEN | grep "$1"
+}
+
+
+function discord() {
+  cd ~/Developer/discord
   source "$HOME/.company_aliases"
-fi
+}
+
 
 # Add Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
