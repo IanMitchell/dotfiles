@@ -1,10 +1,11 @@
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(git ssh-agent)
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
-# Linux Homebrew loading
+# Linux Customizations
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  plugins+=(ssh-agent)
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
