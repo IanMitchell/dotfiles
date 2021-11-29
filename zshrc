@@ -5,7 +5,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Linux Customizations
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  plugins+=(ssh-agent)
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
