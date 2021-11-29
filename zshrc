@@ -71,3 +71,14 @@ eval "$(starship init zsh)"
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/home/ian/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+# Discord Specific
+if [ -n "$CODER_URL" ]; then
+  if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+  _clyde() {
+    eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLYDE_COMPLETE=complete-zsh  clyde)
+  }
+  if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
+    compdef _clyde clyde
+  fi
+fi
