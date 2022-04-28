@@ -72,7 +72,7 @@ PATH="$VOLTA_HOME/bin:$PATH"
 grep --silent "$VOLTA_HOME/bin" <<< $PATH || PATH="$VOLTA_HOME/bin:$PATH"
 
 echo "Installing Latest Node.js"
-volta install node@latest
+volta install node@17
 volta install npm-merge-driver
 
 echo "Installing tldr"
