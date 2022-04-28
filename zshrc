@@ -41,7 +41,6 @@ eval "$(rbenv init -)"
 # Add Volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
 
 # Replace ls
 if [ "$(command -v exa)" ]; then
