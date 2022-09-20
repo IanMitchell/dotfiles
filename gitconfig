@@ -1,6 +1,6 @@
 [user]
 	name = Ian Mitchell
-	email = ian.mitchell@hey.com 
+	email = ian.mitchell@hey.com
 
 [filter "lfs"]
 	required = true
@@ -28,3 +28,5 @@
 
 [diff]
 	colorMoved = zebra
+[push]
+	autoSetupRemote = 1
