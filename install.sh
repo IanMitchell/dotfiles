@@ -55,7 +55,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   curl -LO https://github.com/sharkdp/bat/releases/download/v0.22.1/bat-musl_0.22.1_amd64.deb
   sudo dpkg -i bat-musl_0.22.1_amd64.deb
 
-  sudo apt-get -y install exa
+  # sudo apt-get -y install exa
   curl -sS https://starship.rs/install.sh | sh
   sudo apt-get -y install postgresql
   eval $(git clone https://github.com/rbenv/rbenv.git ~/.rbenv)
