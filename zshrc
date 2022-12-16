@@ -36,7 +36,15 @@ function discord() {
 
 # Add Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
+
+case `uname` in
+  Darwin)
+    eval "$(rbenv init -)"
+  ;;
+  Linux)
+    eval "$(~/.rbenv/bin/rbenv init - zsh)"
+  ;;
+esac
 
 # Replace ls
 if [ "$(command -v exa)" ]; then
