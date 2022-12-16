@@ -4,45 +4,55 @@ set -e
 
 echo "Checking if Homebrew is installed..."
 
-if test ! $(which brew); then
-  echo "Installing Homebrew..."
-  yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    
-    echo "Running apt-get update..."
-    sudo apt-get -y update
-    
-    echo "Installing developer tools..."
-    sudo apt-get -y install build-essential
-
-    echo "Installing net-tools"
-    sudo apt-get -y install net-tools
+if [ "$(uname)" == "Darwin" ]; then
+  if test ! $(which brew); then
+    echo "Installing Homebrew..."
+    yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
-else
-  echo "Homebrew is already installed..."
+
+  # Update and Upgrade
+  echo "Updating and upgrading Homebrew..."
+  yes | brew update
+  yes | brew upgrade
+
+  # Remove outdated versions from the cellar
+  brew cleanup
+
+  brew install coreutils
+  brew install zsh
+  brew install git
+  brew install git-delta
+  brew install rbenv
+  brew install ripgrep
+  brew install bat
+  brew install exa
+  brew install starship
+  brew install gh
+  brew install postgresql
 fi
 
-brew install coreutils
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-# Fixes a bug with perl: https://github.com/Homebrew/linuxbrew-core/issues/4808
-brew install perl -s
+  echo "Running apt-get update..."
+  sudo apt-get -y update
 
-brew install zsh
-brew install git
-brew install git-delta
-brew install rbenv
-brew install ripgrep
-brew install bat
-brew install exa
-brew install starship
-brew install gh
-brew tap heroku/brew
-brew install heroku
+  echo "Installing developer tools..."
+  sudo apt-get -y install build-essential
 
-if [ "$(uname)" == "Darwin" ]; then
-  brew install postgresql
+  echo "Installing net-tools"
+  sudo apt-get -y install net-tools
+
+  echo "Installing utilities..."
+  sudo apt-get install zsh
+  sudo apt-get install git-all
+  # brew install git-delta
+  sudo apt-get install ripgrep
+  sudo apt-get install bat
+  sudo apt-get install exa
+  curl -sS https://starship.rs/install.sh | sh
+  sudo apt-get install postgresql
+  eval $(git clone https://github.com/rbenv/rbenv.git ~/.rbenv)
 fi
 
 # I believe oh-my-zsh does this for me
@@ -54,14 +64,6 @@ if [ ! -d "$HOME/.oh-my-zsh" ] ; then
   echo "Installing Oh My Zsh"
   yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-
-# Update and Upgrade
-echo "Updating and upgrading Homebrew..."
-yes | brew update
-yes | brew upgrade
-
-# Remove outdated versions from the cellar
-brew cleanup
 
 echo "Installing Volta"
 curl https://get.volta.sh | bash

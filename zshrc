@@ -36,11 +36,7 @@ function discord() {
 
 # Add Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# Add Volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 # Replace ls
 if [ "$(command -v exa)" ]; then
@@ -68,9 +64,6 @@ fi
 
 eval "$(starship init zsh)"
 
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/home/ian/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-
 # Discord Specific
 if [ -n "$CODER_URL" ]; then
   if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
@@ -81,3 +74,7 @@ if [ -n "$CODER_URL" ]; then
     compdef _clyde clyde
   fi
 fi
+
+# Add Volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
