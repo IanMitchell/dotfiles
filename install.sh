@@ -46,8 +46,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   echo "Installing utilities..."
   sudo apt-get -y install zsh
   sudo apt-get -y install git-all
-  # brew install git-delta
-  sudo apt-get -y install ripgrep
+  curl -LO https://github.com/dandavison/delta/releases/download/0.15.1/git-delta_0.15.1_amd64.deb
+  sudo dpkg -i git-delta_0.15.1_amd64.deb
+
+  curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+  sudo dpkg -i ripgrep_13.0.0_amd64.deb
+
   sudo apt-get -y install bat
   sudo apt-get -y install exa
   curl -sS https://starship.rs/install.sh | sh
