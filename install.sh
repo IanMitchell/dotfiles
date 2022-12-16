@@ -56,7 +56,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   sudo dpkg -i bat-musl_0.22.1_amd64.deb
 
   # sudo apt-get -y install exa
-  yes | curl -sS https://starship.rs/install.sh | sh
+  # curl -sS https://starship.rs/install.sh | sh
+  sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
+
   sudo apt-get -y install postgresql
   eval $(git clone https://github.com/rbenv/rbenv.git ~/.rbenv)
 fi
