@@ -44,14 +44,14 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   sudo apt-get -y install net-tools
 
   echo "Installing utilities..."
-  sudo apt-get install zsh
-  sudo apt-get install git-all
+  sudo apt-get -y install zsh
+  sudo apt-get -y install git-all
   # brew install git-delta
-  sudo apt-get install ripgrep
-  sudo apt-get install bat
-  sudo apt-get install exa
+  sudo apt-get -y install ripgrep
+  sudo apt-get -y install bat
+  sudo apt-get -y install exa
   curl -sS https://starship.rs/install.sh | sh
-  sudo apt-get install postgresql
+  sudo apt-get -y install postgresql
   eval $(git clone https://github.com/rbenv/rbenv.git ~/.rbenv)
 fi
 
