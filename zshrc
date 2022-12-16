@@ -3,11 +3,6 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
-# Linux Customizations
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-fi
-
 # Helpers
 alias count_files='find . -type f | wc -l'
 alias start_postgres='sudo service postgresql start'
@@ -36,15 +31,7 @@ function discord() {
 
 # Add Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-
-case `uname` in
-  Darwin)
-    eval "$(rbenv init -)"
-  ;;
-  Linux)
-    eval "$(~/.rbenv/bin/rbenv init - zsh)"
-  ;;
-esac
+eval "$(rbenv init -)"
 
 # Replace ls
 if [ "$(command -v exa)" ]; then
