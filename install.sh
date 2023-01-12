@@ -67,8 +67,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # echo "Installing exa"
     # nix-env -i exa
 
-    echo "Installing tldr"
-    npm i -g tldr
+    # echo "Installing tldr"
+    # npm i -g tldr
   fi
 
   echo "Installing utilities..."
