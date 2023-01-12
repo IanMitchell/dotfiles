@@ -2,8 +2,6 @@
 
 set -e
 
-echo "Checking if Homebrew is installed..."
-
 if [ "$(uname)" == "Darwin" ]; then
   if test ! $(which brew); then
     echo "Installing Homebrew..."
@@ -35,11 +33,43 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   echo "Running apt-get update..."
   sudo apt-get -y update
 
-  echo "Installing developer tools..."
-  sudo apt-get -y install build-essential
+  # Only install if not running in Coder
+  if [[ -z ${CODER_WORKSPACE_NAME} ]]; then
+    echo "Installing developer tools..."
+    sudo apt-get -y install build-essential
 
-  echo "Installing net-tools"
-  sudo apt-get -y install net-tools
+    echo "Installing net-tools"
+    sudo apt-get -y install net-tools
+
+    echo "Installing PostgreSQL"
+    sudo apt-get -y install postgresql
+
+    eval $(git clone https://github.com/rbenv/rbenv.git ~/.rbenv)
+
+    echo "Installing exa"
+    sudo apt-get -y install exa
+
+    echo "Installing Volta"
+    curl https://get.volta.sh | bash
+
+    # I can't seem to get Volta to work without this
+    VOLTA_HOME="$HOME/.volta"
+    PATH="$VOLTA_HOME/bin:$PATH"
+    grep --silent "$VOLTA_HOME/bin" <<< $PATH || PATH="$VOLTA_HOME/bin:$PATH"
+
+    echo "Installing Latest Node.js"
+    volta install node@latest
+    volta install npm-merge-driver
+    volta install tldr
+  else
+    echo "Coder env detected, skipping developer libraries"
+
+    echo "Installing exa"
+    nix-env -i exa
+
+    echo "Installing tldr"
+    npm i -g tldr
+  fi
 
   echo "Installing utilities..."
   sudo apt-get -y install zsh
@@ -53,12 +83,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   curl -LO https://github.com/sharkdp/bat/releases/download/v0.22.1/bat-musl_0.22.1_amd64.deb
   sudo dpkg -i bat-musl_0.22.1_amd64.deb
 
-  # sudo apt-get -y install exa
-  # curl -sS https://starship.rs/install.sh | sh
   sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
-
-  sudo apt-get -y install postgresql
-  eval $(git clone https://github.com/rbenv/rbenv.git ~/.rbenv)
 fi
 
 # I believe oh-my-zsh does this for me
@@ -70,21 +95,6 @@ if [ ! -d "$HOME/.oh-my-zsh" ] ; then
   echo "Installing Oh My Zsh"
   yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-
-echo "Installing Volta"
-curl https://get.volta.sh | bash
-
-# I can't seem to get Volta to work without this
-VOLTA_HOME="$HOME/.volta"
-PATH="$VOLTA_HOME/bin:$PATH"
-grep --silent "$VOLTA_HOME/bin" <<< $PATH || PATH="$VOLTA_HOME/bin:$PATH"
-
-echo "Installing Latest Node.js"
-volta install node@17
-volta install npm-merge-driver
-
-echo "Installing tldr"
-volta install tldr
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
