@@ -32,8 +32,6 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
   echo "Running apt-get update..."
   sudo apt-get -y update
 
