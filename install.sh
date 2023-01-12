@@ -64,8 +64,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   else
     echo "Coder env detected, skipping developer libraries"
 
-    echo "Installing exa"
-    nix-env -i exa
+    # echo "Installing exa"
+    # nix-env -i exa
 
     echo "Installing tldr"
     npm i -g tldr
