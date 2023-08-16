@@ -34,7 +34,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   sudo apt-get -y update
 
   # Only install if not running in Coder
-  if [[ -z ${CODER_WORKSPACE_NAME} ]]; then
+  if [[ -z ${CODER} ]]; then
     echo "Installing developer tools..."
     sudo apt-get -y install build-essential
 
@@ -45,9 +45,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo apt-get -y install postgresql
 
     eval $(git clone https://github.com/rbenv/rbenv.git ~/.rbenv)
-
-    echo "Installing exa"
-    sudo apt-get -y install exa
 
     echo "Installing Volta"
     curl https://get.volta.sh | bash
@@ -64,9 +61,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   else
     echo "Coder env detected, skipping developer libraries"
 
-    # echo "Installing exa"
-    # nix-env -i exa
-
     # echo "Installing tldr"
     # npm i -g tldr
   fi
@@ -74,6 +68,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   echo "Installing utilities..."
   sudo apt-get -y install zsh
   sudo apt-get -y install git-all
+  sudo apt-get -y install exa
   curl -LO https://github.com/dandavison/delta/releases/download/0.15.1/git-delta-musl_0.15.1_amd64.deb
   sudo dpkg -i git-delta-musl_0.15.1_amd64.deb
 
@@ -123,7 +118,7 @@ if test -f "$HOME/.zshrc"; then
 fi
 ln -s "$DIR/zshrc" ~/.zshrc
 
-if [[ -v ${CODER_WORKSPACE_NAME} ]]; then
+if [[ -v ${CODER} ]]; then
   echo "Setting git to work email"
   git config --global user.email "ian.mitchell@discordapp.com"
 fi
