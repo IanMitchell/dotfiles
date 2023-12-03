@@ -117,8 +117,3 @@ if test -f "$HOME/.zshrc"; then
   mv ~/.zshrc ~/zshrc.backup
 fi
 ln -s "$DIR/zshrc" ~/.zshrc
-
-if [[ -v ${CODER} ]]; then
-  echo "Setting git to work email"
-  git config --global user.email "ian.mitchell@discordapp.com"
-fi

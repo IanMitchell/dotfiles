@@ -22,13 +22,6 @@ function findport() {
   lsof -nP -iTCP -sTCP:LISTEN | grep "$1"
 }
 
-
-function discord() {
-  cd ~/Developer/discord
-  source "$HOME/.company_aliases"
-}
-
-
 # Add Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -58,17 +51,6 @@ if type brew &>/dev/null; then
 fi
 
 eval "$(starship init zsh)"
-
-# Discord Specific
-if [ -n "$CODER_URL" ]; then
-  if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-  _clyde() {
-    eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLYDE_COMPLETE=complete-zsh  clyde)
-  }
-  if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
-    compdef _clyde clyde
-  fi
-fi
 
 # Add Volta
 export VOLTA_HOME="$HOME/.volta"
