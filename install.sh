@@ -23,7 +23,7 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install rbenv
   brew install ripgrep
   brew install bat
-  brew install exa
+  brew install eza
   brew install starship
   brew install gh
   brew install postgresql
