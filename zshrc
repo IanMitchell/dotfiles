@@ -55,3 +55,6 @@ eval "$(starship init zsh)"
 # Add Volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Default to VS Code
+export EDITOR="code --wait"
