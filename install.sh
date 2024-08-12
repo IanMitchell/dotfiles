@@ -27,6 +27,11 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install starship
   brew install gh
   brew install postgresql
+  brew install fzf
+  brew install nvim
+  brew install lazygit
+  brew install tokei
+  brew install fd
 fi
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -99,6 +104,12 @@ if test -f "$HOME/.config/starship.toml"; then
   mv ~/.config/starship.toml ~/.config/starship.toml.backup
 fi
 ln -s "$DIR/starship.toml" ~/.config/starship.toml
+
+echo "Configuring Ghostty"
+ln -s "$DIR/ghostty" ~/.config/ghostty
+
+echo "Configuring Neovim"
+ln -S "$DIR/nvim" ~/.config/nvim
 
 echo "Copying .gemrc"
 if test -f "$HOME/.gemrc"; then
