@@ -58,3 +58,15 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # Default to VS Code
 export EDITOR="code --wait"
+
+# Bun completions
+[ -s "/Users/ian/.bun/_bun" ] && source "/Users/ian/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --colors=always'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--ansi"
+
