@@ -17,3 +17,12 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
+-- File Management
+vim.keymap.set("n", "<leader>df", function()
+  local confirm = vim.fn.confirm("Delete buffer and file?", "&Yes\n&No", 2)
+
+  if confirm == 1 then
+    os.remove(vim.fn.expand "%")
+    vim.api.nvim_buf_delete(0, { force = true })
+  end
+end, { desc = "Delete current buffer and file" })
