@@ -14,7 +14,7 @@ return {
     end, { desc = "Previous todo comment" })
 
     -- TODO: I don't love the tt keybind.
-    vim.keymap.set("n", "<leader>tt", "<cmd>Trouble todo", { desc = "All project todos" })
+    vim.keymap.set("n", "<leader>tt", "<cmd>Trouble todo<CR>", { desc = "All project todos" })
 
     todo_comments.setup()
   end,
