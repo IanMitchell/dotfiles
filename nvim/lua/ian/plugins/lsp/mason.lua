@@ -27,6 +27,7 @@ return {
         "tailwindcss",
         "lua_ls",
         "ruby_lsp",
+        "eslint",
       },
     }
 

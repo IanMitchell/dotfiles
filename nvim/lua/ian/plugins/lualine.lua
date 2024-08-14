@@ -5,6 +5,16 @@ return {
     local lualine = require "lualine"
     local lazy_status = require "lazy.status"
 
+    local lint_status = function()
+      local linters = require("lint").get_running()
+
+      if #linters == 0 then
+        return "󰦕"
+      end
+
+      return "󱉶 " .. table.concat(linters, ", ")
+    end
+
     lualine.setup {
       options = {
         theme = "tokyonight",
@@ -16,7 +26,8 @@ return {
             cond = lazy_status.has_updates,
             color = {},
           },
-          { "encoding" },
+          { lint_status },
+          -- { "encoding" },
         },
         lualine_y = {
           {

@@ -14,6 +14,7 @@ return {
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
+    -- TODO: Figure out why this is a blocking operation
     -- vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
       group = lint_augroup,
