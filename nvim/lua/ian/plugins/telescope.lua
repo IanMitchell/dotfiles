@@ -15,6 +15,12 @@ return {
     telescope.setup {
       defaults = {
         path_display = { "smart" },
+        mappings = {
+          i = {
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
+          },
+        },
       },
       ["ui-select"] = {
         require("telescope.themes").get_dropdown {},
@@ -26,5 +32,6 @@ return {
 
     vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files" })
     vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+    vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find in buffers" })
   end,
 }

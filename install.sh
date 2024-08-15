@@ -32,6 +32,7 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install lazygit
   brew install tokei
   brew install fd
+  brew install lazydocker
 fi
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
