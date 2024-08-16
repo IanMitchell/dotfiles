@@ -8,15 +8,6 @@ alias count_files='find . -type f | wc -l'
 alias start_postgres='sudo service postgresql start'
 alias wsl_psql='sudo su - postgres psql'
 
-# has_shipped `shipped_commit` `commit`
-function has_shipped() {
-  if git merge-base --is-ancestor "$2" "$1"; then
-    echo "Commit has shipped"
-  else
-    echo "Commit has not shipped"
-  fi
-}
-
 # findport `port`
 function findport() {
   lsof -nP -iTCP -sTCP:LISTEN | grep "$1"
@@ -56,8 +47,8 @@ eval "$(starship init zsh)"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-# Default to VS Code
-export EDITOR="code --wait"
+# Default to NeoVim
+export EDITOR="nvim"
 
 # Bun completions
 [ -s "/Users/ian/.bun/_bun" ] && source "/Users/ian/.bun/_bun"
@@ -66,7 +57,7 @@ export EDITOR="code --wait"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# fzf replacements
 export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --colors=always'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi"
-
