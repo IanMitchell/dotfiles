@@ -33,6 +33,7 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install tokei
   brew install fd
   brew install lazydocker
+  brew install zellij
 fi
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -110,7 +111,10 @@ echo "Configuring Ghostty"
 ln -s "$DIR/ghostty" ~/.config/ghostty
 
 echo "Configuring Neovim"
-ln -S "$DIR/nvim" ~/.config/nvim
+ln -s "$DIR/nvim" ~/.config/nvim
+
+echo "Configuring Zellij"
+ln -s "$DIR/zellij" ~/.config/zellij
 
 echo "Copying .gemrc"
 if test -f "$HOME/.gemrc"; then
