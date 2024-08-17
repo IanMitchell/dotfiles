@@ -1,10 +1,3 @@
-# Helpers
-function findport
-  lsof -nP -iTCP -sTCP:LISTEN | grep $argv
-end
-
-alias count_files='find . -type f | wc -l'
-
 # Replace `cat`` with `bat`
 if type -q bat
   functions -e cat
@@ -34,3 +27,5 @@ end
 export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --colors=always'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
