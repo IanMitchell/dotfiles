@@ -1,3 +1,6 @@
+# Profiling
+zmodload zsh/zprof
+
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(git)
