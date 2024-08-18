@@ -3,7 +3,6 @@
 SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:true
 SETUVAR __fish_initialized:3400
 SETUVAR _tide_left_items:pwd\x1egit\x1enewline\x1echaracter
-SETUVAR _tide_prompt_27086:\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b2\x3b52\x3b101\x3b164m\ue0b6\x1b\x5b48\x3b2\x3b52\x3b101\x3b164m\x20\x40PWD\x40\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b2\x3b52\x3b101\x3b164m\ue0b4\x1e\x1b\x5b38\x3b2\x3b95\x3b215\x3b0m\u276f
 SETUVAR _tide_right_items:status\x1ecmd_duration\x1econtext\x1ejobs\x1epython\x1ejava\x1eruby\x1ekubectl
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
