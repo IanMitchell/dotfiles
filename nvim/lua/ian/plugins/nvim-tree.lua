@@ -15,6 +15,10 @@ return {
       update_focused_file = {
         enable = true,
       },
+      filters = {
+        dotfiles = false,
+        git_ignored = false,
+      },
       renderer = {
         indent_markers = {
           enable = true,
