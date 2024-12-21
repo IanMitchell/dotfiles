@@ -12,8 +12,8 @@ return {
     }
 
     vim.keymap.set("n", "<leader>do", function()
-      local cwd = vim.fn.getcwd()
-      require("oil").open_float(cwd)
+      local current_dir = vim.fn.expand "%:p:h"
+      require("oil").open_float(current_dir)
     end, { desc = "Open Oil" })
   end,
 }

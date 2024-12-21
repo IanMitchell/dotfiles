@@ -1,15 +1,33 @@
-#theme=Smyck
-theme=TokyoNight
-cursor-style = block
-cursor-style-blink = true
-window-padding-x = 10
-window-padding-y = 10
-shell-integration-features = no-cursor,sudo,title
-background-blur-radius = 20
-background-opacity = 0.9
-macos-option-as-alt = true
+# Font
 font-family = "Berkeley Mono"
 font-size = 14
-#background = #242424
+
+# Theme
+# theme=Smyck
+theme=TokyoNight
+background = #0f0f0f
+
+# Input
+cursor-style = block
+cursor-style-blink = true
+
+# Window
+window-padding-x = 10
+window-padding-y = 10
+window-decoration = true
+# window-theme=system
+background-opacity = 0.85
+background-blur-radius = 20
+
+# Mac
+# macos-titlebar-style = hidden
 window-colorspace = display-p3
 macos-option-as-alt = true
+confirm-close-surface = false
+
+# Shell
+shell-integration = fish
+shell-integration-features = no-cursor,sudo,title
+
+# Splits
+unfocused-split-opacity = 0.9

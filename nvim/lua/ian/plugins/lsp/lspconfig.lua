@@ -95,6 +95,11 @@ return {
             cmd = { "mise x -- ruby-lsp" },
           },
         }
+        lspconfig["eslint"].setup {
+          experimental = {
+            useFlatConfig = true,
+          },
+        }
       end,
     }
   end,
