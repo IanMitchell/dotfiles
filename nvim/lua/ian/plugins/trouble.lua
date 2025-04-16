@@ -5,7 +5,6 @@ return {
     "folke/todo-comments.nvim",
   },
   opts = {
-    focus = true,
     warn_no_results = false,
     open_no_results = true,
     modes = {

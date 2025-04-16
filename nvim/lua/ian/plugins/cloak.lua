@@ -1,6 +1,6 @@
 return {
   "laytan/cloak.nvim",
-  event = "VeryLazy",
+  lazy = false,
   config = function()
     local cloak = require "cloak"
 

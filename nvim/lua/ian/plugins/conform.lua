@@ -1,6 +1,7 @@
 return {
   "stevearc/conform.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufWritePre" },
+  cmd = { "ConformInfo" },
   config = function()
     local conform = require "conform"
 
@@ -25,12 +26,12 @@ return {
       },
     }
 
-    vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+    vim.api.nvim_create_user_command("FormatBuffer", function()
       conform.format {
         lsp_fallback = true,
         async = false,
         timeout_ms = 1000,
       }
-    end, { desc = "Format file or visual mode range" })
+    end, {})
   end,
 }

@@ -1,12 +1,13 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  lazy = true,
+  event = { "BufEnter" },
   opts = {
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
 
-      vim.keymap.set("n", "]h", gs.next_hunk, { desc = "Next Hunk", buffer = bufnr })
-      vim.keymap.set("n", "[h", gs.prev_hunk, { desc = "Previous Hunk", buffer = bufnr })
+      vim.keymap.set("n", "]g", gs.next_hunk, { desc = "Next Git Hunk", buffer = bufnr })
+      vim.keymap.set("n", "[g", gs.prev_hunk, { desc = "Previous Git Hunk", buffer = bufnr })
 
       -- vim.keymap.set("n", "<leader>hs", gs.stage_hunk, { desc = "Stage Hunk", buffer = bufnr })
       -- vim.keymap.set("n", "<leader>hr", gs.reset_hunk, { desc = "Reset Hunk", buffer = bufnr })

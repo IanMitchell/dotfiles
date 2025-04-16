@@ -11,14 +11,16 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+
 require("lazy").setup {
   { import = "ian.plugins" },
   { import = "ian.plugins.lsp" },
   change_detection = {
-    notify = false,
+    enabled = true,
+    notify = true,
   },
   checker = {
     enabled = true,
-    notify = false,
+    notify = true,
   },
 }
