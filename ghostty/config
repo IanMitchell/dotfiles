@@ -12,18 +12,23 @@ cursor-style = block
 cursor-style-blink = true
 
 # Window
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 0
+window-padding-y = 0
 window-decoration = true
+window-padding-color = background
+window-padding-balance = true
 # window-theme=system
 background-opacity = 0.85
 background-blur-radius = 20
+unfocused-split-opacity = 0.95
 
 # Mac
 # macos-titlebar-style = hidden
 window-colorspace = display-p3
-macos-option-as-alt = true
 confirm-close-surface = false
+# macos-icon = custom-style
+# macos-icon-ghost-color = dark blue
+# macos-icon-screen-color = black
 
 # Shell
 shell-integration = fish
