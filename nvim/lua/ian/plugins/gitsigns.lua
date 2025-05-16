@@ -30,9 +30,9 @@ return {
       vim.keymap.set("n", "<leader>gB", gs.toggle_current_line_blame, { desc = "Toggle line blame", buffer = bufnr })
 
       vim.keymap.set("n", "<leader>gd", gs.diffthis, { desc = "Diff this", buffer = bufnr })
-      vim.keymap.set("n", "<leader>gD", function()
-        gs.diffthis "~"
-      end, { desc = "Diff this ~", buffer = bufnr })
+      -- vim.keymap.set("n", "<leader>gD", function()
+      --   gs.diffthis "~"
+      -- end, { desc = "Diff this ~", buffer = bufnr })
 
       -- vim.keymap.set(
       --   { "o", "x" },
