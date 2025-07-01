@@ -18,7 +18,7 @@ return {
       return "󱉶 " .. table.concat(linters, ", ")
     end
 
-    local symbols = trouble.statusline({
+    local symbols = trouble.statusline {
       mode = "lsp_document_symbols",
       groups = {},
       title = false,
@@ -27,7 +27,7 @@ return {
       -- The following line is needed to fix the background color
       -- Set it to the lualine section you want to use
       hl_group = "lualine_c_normal",
-    })
+    }
 
     lualine.setup {
       options = {
@@ -39,7 +39,7 @@ return {
       },
       sections = {
         lualine_b = {
-          { "branch", icon = "", fmt = truncate_branch_name },
+          { "branch", icon = "" },
           "diff",
         },
         lualine_c = {

@@ -1,5 +1,6 @@
 require "ian.core.options"
 require "ian.core.keymaps"
+require "ian.core.lsp"
 require "ian.core.terminal"
 require "ian.core.undercurl"
 require "ian.core.copy_file_path"

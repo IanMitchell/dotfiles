@@ -16,6 +16,9 @@ brew cleanup
 echo "Install bundles..."
 brew bundle install
 
+echo "Installing bun"
+curl -fsSL https://bun.sh/install | bash
+
 # Get target directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
