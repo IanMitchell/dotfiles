@@ -20,5 +20,5 @@ foreground = #565869
 selection-background = #2DAE58
 
 cursor-color = #14B1FF
-cursor-text = #14B1FF
-selection-foreground =  #565869
+cursor-text = #FAFBF9
+selection-foreground =  #FAFBF9
