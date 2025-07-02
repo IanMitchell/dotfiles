@@ -17,6 +17,6 @@ vim.api.nvim_create_user_command("CopyFilePathToClipboard", function()
   vim.fn.setreg("+", relative_path)
 end, {})
 
-vim.api.nvim_create_user_command("cfp", function()
+vim.api.nvim_create_user_command("CFP", function()
   vim.cmd ":CopyFilePathToClipboard"
 end, {})
