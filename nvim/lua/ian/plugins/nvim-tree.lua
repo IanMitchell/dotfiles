@@ -21,9 +21,9 @@ return {
         custom = { ".DS_Store" },
       },
       renderer = {
-        indent_markers = {
-          enable = true,
-        },
+        -- indent_markers = {
+        --   enable = true,
+        -- },
         icons = {
           glyphs = {
             folder = {
