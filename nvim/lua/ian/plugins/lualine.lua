@@ -29,10 +29,17 @@ return {
       hl_group = "lualine_c_normal",
     }
 
+    local theme = function()
+      if vim.o.background == "dark" then
+        return "onedark"
+      end
+
+      return "onelight"
+    end
+
     lualine.setup {
       options = {
-        theme = "tokyonight",
-        -- theme = "onedark",
+        theme = theme,
         globalstatus = true,
         component_separators = { left = "", right = "" },
         section_separators = { left = "█", right = "█" },
