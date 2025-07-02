@@ -47,6 +47,6 @@
   "ts-comments.nvim": { "branch": "main", "commit": "1bd9d0ba1d8b336c3db50692ffd0955fe1bb9f0c" },
   "tsc.nvim": { "branch": "main", "commit": "5bd25bb5c399b6dc5c00392ade6ac6198534b53a" },
   "vim-maximizer": { "branch": "master", "commit": "2e54952fe91e140a2e69f35f22131219fcd9c5f1" },
-  "visual-whitespace.nvim": { "branch": "main", "commit": "99898e2c26d06c9109820236228c7ce6df86e51c" },
+  "visual-whitespace.nvim": { "branch": "main", "commit": "b5ab2ea698a07ef0fa042d0c61667c3cb06e92c8" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }
