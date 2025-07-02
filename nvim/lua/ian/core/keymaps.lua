@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 -- Search Highlights
-vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<leader>hc", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Window Management
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })

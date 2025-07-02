@@ -11,7 +11,6 @@ return {
   },
   config = function()
     local lspconfig = require "lspconfig"
-    local mason_lspconfig = require "mason-lspconfig"
     local cmp_nvim_lsp = require "cmp_nvim_lsp"
     local mason = require "mason"
     local mason_lspconfig = require "mason-lspconfig"
@@ -37,7 +36,6 @@ return {
       includeInlayVariableTypeHints = true,
       includeInlayVariableTypeHintsWhenTypeMatchesName = true,
     }
-
 
     local lsp_servers = {
       bashls = {},
@@ -70,7 +68,7 @@ return {
           linters = { "standard" },
           cmd = { "mise x -- ruby-lsp" },
         },
-      }
+      },
     }
 
     local formatters = {
@@ -148,7 +146,7 @@ return {
     end
 
     for name, config in pairs(lsp_servers) do
-      require("lspconfig")[name].setup({
+      require("lspconfig")[name].setup {
         autostart = config.autostart,
         cmd = config.cmd,
         capabilities = capabilities,
@@ -158,7 +156,7 @@ return {
         root_dir = config.root_dir,
         init_options = config.init_options,
         experimental = config.experimental,
-      })
+      }
     end
   end,
 }
