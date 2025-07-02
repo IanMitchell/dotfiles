@@ -7,11 +7,6 @@ return {
   opts = {
     warn_no_results = false,
     open_no_results = true,
-    modes = {
-      diagnostics = {
-        auto_open = true,
-      },
-    },
   },
   cmd = "Trouble",
   keys = {
