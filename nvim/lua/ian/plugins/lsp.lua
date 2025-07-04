@@ -10,7 +10,6 @@ return {
     { "folke/lazydev.nvim", opts = {} },
   },
   config = function()
-    local lspconfig = require "lspconfig"
     local cmp_nvim_lsp = require "cmp_nvim_lsp"
     local mason = require "mason"
     local mason_lspconfig = require "mason-lspconfig"
@@ -76,14 +75,12 @@ return {
       stylua = {},
     }
 
-    local ensure_installed = vim.tbl_keys(vim.tbl_deep_extend("force", {}, lsp_servers, formatters))
-
     mason_tool_installer.setup {
+      ensure_installed = vim.tbl_keys(vim.tbl_deep_extend("force", {}, lsp_servers, formatters)),
       auto_update = true,
       run_on_start = true,
       start_delay = 3000,
       debounce_hours = 12,
-      ensure_installed = ensure_installed,
     }
     mason_lspconfig.setup()
 
