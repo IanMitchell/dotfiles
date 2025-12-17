@@ -1,10 +1,13 @@
+# Shell
+command = /opt/homebrew/bin/nu
+
 # Font
 font-family = "Berkeley Mono Variable"
 font-size = 14
 
 # Theme
 # theme = dark:TokyoNight,light:"/Users/ian/.config/ghostty/snazzy-light"
-theme = dark:AtomOneDark,light:"/Users/ian/.config/ghostty/snazzy-light"
+theme = dark:Atom One Dark,light:"/Users/ian/.config/ghostty/snazzy-light"
 # background = #0f0f0f
 
 # Input
@@ -37,3 +40,7 @@ shell-integration-features = no-cursor,sudo,title
 # Splits
 unfocused-split-opacity = 0.9
 keybind = shift+enter=text:\n
+
+# TODO: https://ghostty.org/docs/config/keybind/reference#goto_split
+# TODO: https://ghostty.org/docs/config/keybind/reference#toggle_split_zoom
+# TODO: https://ghostty.org/docs/config/keybind/reference#resize_split
