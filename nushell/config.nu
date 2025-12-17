@@ -70,6 +70,10 @@ def --wrapped bat [...args] {
 	bat-builtin $"--theme=($theme)" --style="grid,numbers,changes,header" --pager="none" ...$args
 }
 
+def ai [query: string] {
+	opencode run $"generate a nushell command for ($query)"
+}
+
 $env.config.buffer_editor = 'nvim'
 
 $env.path ++= [
