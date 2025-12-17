@@ -16,6 +16,7 @@
 	minus-style = "normal #340001"
 	syntax-theme = Monokai Extended
 	side-by-side = true
+	navigate = true
 
 [interactive]
 	diffFilter = delta --color-only
@@ -31,6 +32,9 @@
 
 [push]
 	autoSetupRemote = 1
+
+[merge]
+	conflictStyle = zdiff3
 
 [url "\"git@github.com:\""]
 	insteadOf = \"https://github.com/\"

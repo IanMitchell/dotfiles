@@ -34,12 +34,6 @@ if test -f "$HOME/.config/nvim"; then
 fi
 ln -s "$DIR/nvim" "$HOME/.config/nvim"
 
-echo "Configuring Zellij"
-if test -f "$HOME/.config/zellij"; then
-  mv "$HOME/.config/zellij" "$HOME/zellij.backup"
-fi
-ln -s "$DIR/zellij" "$HOME/.config/zellij"
-
 echo "Copying .gemrc"
 if test -f "$HOME/.gemrc"; then
   mv "$HOME/.gemrc" "$HOME/gemrc.backup"
@@ -52,13 +46,16 @@ if test -f "$HOME/.gitconfig"; then
 fi
 ln -s "$DIR/gitconfig" "$HOME/.gitconfig"
 
-echo "Switching default shell to fish..."
-FISH_DIR="$(which fish)"
-
-if ! grep -q "${FISH_DIR}" /etc/shells; then
-  echo "${FISH_DIR}" >> /etc/shells
+echo "Copying config.nu"
+if test -f "$HOME/Library/Application Support/nushell/config.nu"; then
+  mv "$HOME/Library/Application Support/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu.backup"
 fi
+ln -s "$DIR/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
 
-chsh -s "$FISH_DIR"
+echo "Copying starship.toml"
+if test -f "$HOME/.config/starship.toml"; then
+  mv "$HOME/.config/starship.toml" "$HOME/.config/starship.toml.backup"
+fi
+ln -s "$DIR/starship.toml" "$HOME/.config/starship.toml"
 
 echo "Done!"
