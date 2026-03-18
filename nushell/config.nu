@@ -79,7 +79,8 @@ $env.config.buffer_editor = 'nvim'
 $env.path ++= [
 	"/opt/homebrew/bin/",
 	"~/.bun/bin",
-	"/opt/homebrew/opt/node@22/bin"
+	"/opt/homebrew/opt/node@22/bin",
+	"/Users/ian/.local/bin"
 ]
 
 source ~/.zoxide.nu

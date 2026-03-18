@@ -19,6 +19,9 @@ brew bundle install
 echo "Installing bun"
 curl -fsSL https://bun.sh/install | bash
 
+echo "Installing Vite+"
+curl -fsSL https://vite.plus | bash
+
 # Get target directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -51,6 +54,13 @@ if test -f "$HOME/Library/Application Support/nushell/config.nu"; then
   mv "$HOME/Library/Application Support/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu.backup"
 fi
 ln -s "$DIR/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
+
+FISH_DIR="$(which fish)"
+
+if ! grep -q "${FISH_DIR}" /etc/shells; then
+  echo "${FISH_DIR}" >> /etc/shells
+fi
+chsh -s "$FISH_DIR"
 
 echo "Copying starship.toml"
 if test -f "$HOME/.config/starship.toml"; then

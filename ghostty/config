@@ -1,5 +1,5 @@
 # Shell
-command = /opt/homebrew/bin/nu
+# command = /opt/homebrew/bin/nu
 
 # Font
 font-family = "Berkeley Mono Variable"
@@ -21,12 +21,13 @@ window-decoration = true
 window-padding-color = background
 window-padding-balance = true
 # window-theme=system
+background-blur = macos-glass-regular 
 background-opacity = 0.85
-background-blur-radius = 20
+# background-blur-radius = 20
 unfocused-split-opacity = 0.95
 
 # Mac
-# macos-titlebar-style = hidden
+macos-titlebar-style = tabs
 window-colorspace = display-p3
 confirm-close-surface = false
 # macos-icon = custom-style
