@@ -21,6 +21,9 @@ curl -fsSL https://bun.sh/install | bash
 
 echo "Installing Vite+"
 curl -fsSL https://vite.plus | bash
+# Ensure Vite+ env files (env, env.fish, env.ps1) are created for all shells,
+# since the installer only configures the shell specified by $SHELL (bash here).
+"$HOME/.vite-plus/bin/vp" env setup --env-only 2>/dev/null || true
 
 # Get target directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -61,6 +64,7 @@ if ! grep -q "${FISH_DIR}" /etc/shells; then
   echo "${FISH_DIR}" >> /etc/shells
 fi
 chsh -s "$FISH_DIR"
+ln -s "$DIR/fish" "$HOME/.config/fish"
 
 echo "Copying starship.toml"
 if test -f "$HOME/.config/starship.toml"; then

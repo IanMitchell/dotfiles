@@ -14,3 +14,4 @@ set --export PATH $BUN_INSTALL/bin $PATH
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
 starship init fish | source
+export PATH="$HOME/.local/bin:$PATH"
