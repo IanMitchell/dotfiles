@@ -10,6 +10,7 @@
 
 [core]
 	pager = delta
+	editor = "nvim"
 
 [delta]
 	plus-style = "syntax #012800"
@@ -24,8 +25,17 @@
 [init]
 	defaultBranch = main
 
+[fetch]
+	prune = true
+
 [pull]
 	rebase = true
+
+[rebase]
+	updateRefs = true
+
+[rerere]
+	enabled = true
 
 [diff]
 	colorMoved = zebra

@@ -7,26 +7,21 @@ add_newline = true
 [character]
 success_symbol = '[➜](bold green)'
 
-# Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
 
-
 [directory]
-truncate_to_repo=false
-truncation_length=-1
-style="fg:bright-green"
+truncate_to_repo = false
+truncation_length = -1
+style = "fg:bright-green"
 
 [username]
-show_always=true
-style_root="bold fg:bright-blue"
-style_user="bold fg:bright-blue"
+show_always = true
+style_root = "bold fg:bright-blue"
+style_user = "bold fg:bright-blue"
 
 [git_branch]
-style="fg:bright-yellow"
-
-[kubernetes]
-disabled=false
+style = "fg:bright-yellow"
 
 [[battery.display]]
 threshold = 10
@@ -35,5 +30,3 @@ style = 'bold red'
 [[battery.display]]
 threshold = 30
 style = 'bold yellow'
-
-

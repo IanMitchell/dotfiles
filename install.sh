@@ -72,4 +72,9 @@ if test -f "$HOME/.config/starship.toml"; then
 fi
 ln -s "$DIR/starship.toml" "$HOME/.config/starship.toml"
 
+echo "Linking Agents..."
+ln -s "$DIR/.agents" "$HOME/.agents"
+ln -s "$DIR/.pi" "$HOME/.pi"
+ln -s "$DIR/opencode" "$HOME/.gitconfig"
+
 echo "Done!"
