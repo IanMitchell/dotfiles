@@ -75,6 +75,12 @@ link_config "$DIR/nvim" "$HOME/.config/nvim"
 echo "Copying .gemrc"
 link_config "$DIR/gemrc" "$HOME/.gemrc"
 
+echo "Configuring mise"
+link_config "$DIR/mise/config.toml" "$HOME/.config/mise/config.toml"
+if command -v mise >/dev/null 2>&1; then
+  mise install
+fi
+
 echo "Copying .gitconfig"
 link_config "$DIR/gitconfig" "$HOME/.gitconfig"
 

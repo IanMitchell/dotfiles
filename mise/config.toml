@@ -1,0 +1,5 @@
+[tools]
+ruby = "latest"
+
+[settings]
+disable_tools = ["node", "bun", "npm", "pnpm", "yarn"]

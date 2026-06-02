@@ -4,7 +4,9 @@ My personal dotfiles for my machines. These are macOS-primary and may need manua
 
 Fish is the primary shell. zsh and Nushell configs are deprecated and unused.
 
-The Homebrew bundle installs core command-line tools and apps including Fish, Starship, Git, Git Delta, ripgrep, GitHub CLI, fzf, bat, eza, Neovim, Lazygit, Tokei, fd, Lazydocker, Zoxide, opencode, Jujutsu, and Gum.
+The Homebrew bundle installs core command-line tools and apps including Fish, Starship, Git, Git Delta, ripgrep, GitHub CLI, fzf, bat, eza, Neovim, Lazygit, Tokei, fd, Lazydocker, mise, Zoxide, opencode, Jujutsu, and Gum.
+
+mise manages Ruby. Node and npm are intentionally handled by Vite+, and Bun is handled by Bun directly.
 
 ## Usage
 
