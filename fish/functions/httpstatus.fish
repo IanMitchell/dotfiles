@@ -25,8 +25,8 @@ function httpstatus -d "Display HTTP status code information"
     echo "Usage: httpstatus <code|pattern>"
     echo "Examples:"
     echo "  httpstatus 404       # Show specific code"
-    echo "  httpstatus 2*        # Show all 2xx codes"
-    echo "  httpstatus 40*       # Show all 40x codes"
+    echo "  httpstatus '2*'      # Show all 2xx codes"
+    echo "  httpstatus '40*'     # Show all 40x codes"
     echo "  httpstatus 200-299   # Show range of codes"
     return 1
   end

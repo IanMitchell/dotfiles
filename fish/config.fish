@@ -5,9 +5,8 @@ set -gx EDITOR 'nvim'
 set -gx MANPAGER 'nvim +Man!'
 
 # fzf replacements
-export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --colors=always'
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --color=always'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="$HOME/.local/bin:$PATH"
+fish_add_path --global --move --path "$HOME/.local/bin"

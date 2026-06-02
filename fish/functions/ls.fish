@@ -2,7 +2,7 @@
 if type -q eza
 	functions -e ls
 
-	function ls
+	function ls --wraps eza
 		eza -G --color auto --icons -a -s type $argv
 	end
 end

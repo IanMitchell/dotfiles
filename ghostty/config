@@ -8,8 +8,9 @@ font-family = "Berkeley Mono Variable"
 font-size = 14
 
 # Theme
-# theme = dark:TokyoNight,light:"/Users/ian/.config/ghostty/snazzy-light"
-theme = dark:Atom One Dark,light:"/Users/ian/.config/ghostty/snazzy-light"
+# Custom themes are loaded from ~/.config/ghostty/themes by name.
+# theme = dark:TokyoNight,light:snazzy-light
+theme = dark:Atom One Dark,light:snazzy-light
 # background = #0f0f0f
 
 # Input

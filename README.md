@@ -1,13 +1,15 @@
 # Dotfiles
 
-My personal dotfiles for all my machines! I use these on macOS, Windows WSL2, and GitHub Codespaces.
+My personal dotfiles for my machines. These are macOS-primary and may need manual adjustment elsewhere.
 
-It uses zsh, [Starship](https://starship.rs/), [bat](https://github.com/sharkdp/bat), [exa](https://github.com/ogham/exa), [tldr](https://tldr.sh), and [delta](https://github.com/dandavison/delta).
+Fish is the primary shell. zsh and Nushell configs are deprecated and unused.
+
+The Homebrew bundle installs core command-line tools and apps including Fish, Starship, Git, Git Delta, ripgrep, GitHub CLI, fzf, bat, eza, Neovim, Lazygit, Tokei, fd, Lazydocker, Zoxide, opencode, Jujutsu, and Gum.
 
 ## Usage
 
 Clone this repository to your machine and then run the following command:
 
-    $ ./install
+    $ ./install.sh
 
-Any existing dotfiles will be saved under `~/<name>.backup`
+Any existing dotfiles managed by the installer will be saved next to the original path with a `.backup.<timestamp>` suffix.
