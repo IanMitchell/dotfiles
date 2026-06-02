@@ -1,15 +1,11 @@
-return {
-  "windwp/nvim-autopairs",
-  event = { "InsertEnter" },
-  config = function()
-    local autopairs = require "nvim-autopairs"
+vim.pack.add({
+  { name = "nvim-autopairs", src = "https://github.com/windwp/nvim-autopairs" },
+}, { confirm = false, load = true })
 
-    autopairs.setup {
-      check_ts = true,
-      ts_config = {
-        lua = { "string" },
-        javascript = { "template_string" },
-      },
-    }
-  end,
+require("nvim-autopairs").setup {
+  check_ts = true,
+  ts_config = {
+    lua = { "string" },
+    javascript = { "template_string" },
+  },
 }

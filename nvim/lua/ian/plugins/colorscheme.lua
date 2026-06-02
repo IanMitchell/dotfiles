@@ -1,32 +1,18 @@
-return {
-	{
-		"navarasu/onedark.nvim",
-		priority = 1000,
-		lazy = false,
-		cond = function()
-			return vim.o.background == "dark"
-		end,
-		config = function()
-			local theme = require "onedark"
-			theme.setup {
-				style = "darker",
-				transparent = true,
-			}
-			theme.load()
+vim.pack.add({
+  { name = "onedark.nvim", src = "https://github.com/navarasu/onedark.nvim" },
+  { name = "onehalf", src = "https://github.com/sonph/onehalf" },
+}, { confirm = false, load = true })
 
-			vim.cmd [[colorscheme onedark]]
-		end,
-	},
-	{
-		"sonph/onehalf",
-		priority = 1000,
-		lazy = false,
-		cond = function()
-			return vim.o.background == "light"
-		end,
-		config = function(plugin)
-			vim.opt.rtp:append(plugin.dir .. "/vim")
-			vim.cmd [[colorscheme onehalflight]]
-		end,
-	},
-}
+if vim.o.background == "dark" then
+  local theme = require "onedark"
+  theme.setup {
+    style = "darker",
+    transparent = true,
+  }
+  theme.load()
+
+  vim.cmd [[colorscheme onedark]]
+else
+  vim.opt.rtp:append(vim.fn.stdpath "data" .. "/site/pack/core/opt/onehalf/vim")
+  vim.cmd [[colorscheme onehalflight]]
+end

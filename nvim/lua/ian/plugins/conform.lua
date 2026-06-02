@@ -1,37 +1,34 @@
-return {
-  "stevearc/conform.nvim",
-  event = { "BufWritePre" },
-  cmd = { "ConformInfo" },
-  config = function()
-    local conform = require "conform"
+vim.pack.add({
+  { name = "conform.nvim", src = "https://github.com/stevearc/conform.nvim" },
+}, { confirm = false, load = true })
 
-    conform.setup {
-      formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        lua = { "stylua" },
-        ruby = { "standardrb" },
-      },
-      format_on_save = {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      },
-    }
+local conform = require "conform"
 
-    vim.api.nvim_create_user_command("FormatBuffer", function()
-      conform.format {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      }
-    end, {})
-  end,
+conform.setup {
+  formatters_by_ft = {
+    javascript = { "oxfmt" },
+    typescript = { "oxfmt" },
+    javascriptreact = { "oxfmt" },
+    typescriptreact = { "oxfmt" },
+    css = { "oxfmt" },
+    html = { "oxfmt" },
+    json = { "oxfmt" },
+    yaml = { "oxfmt" },
+    markdown = { "oxfmt" },
+    lua = { "stylua" },
+    ruby = { "standardrb" },
+  },
+  format_on_save = {
+    lsp_format = "fallback",
+    async = false,
+    timeout_ms = 1000,
+  },
 }
+
+vim.api.nvim_create_user_command("FormatBuffer", function()
+  conform.format {
+    lsp_format = "fallback",
+    async = false,
+    timeout_ms = 1000,
+  }
+end, {})

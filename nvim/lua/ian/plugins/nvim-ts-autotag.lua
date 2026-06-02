@@ -1,8 +1,5 @@
-return {
-  "windwp/nvim-ts-autotag",
-  config = function()
-    local autotag = require "nvim-ts-autotag"
+vim.pack.add({
+  { name = "nvim-ts-autotag", src = "https://github.com/windwp/nvim-ts-autotag" },
+}, { confirm = false, load = true })
 
-    autotag.setup()
-  end,
-}
+require("nvim-ts-autotag").setup()

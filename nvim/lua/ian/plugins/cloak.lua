@@ -1,12 +1,10 @@
-return {
-  "laytan/cloak.nvim",
-  lazy = false,
-  config = function()
-    local cloak = require "cloak"
+vim.pack.add({
+  { name = "cloak.nvim", src = "https://github.com/laytan/cloak.nvim" },
+}, { confirm = false, load = true })
 
-    cloak.setup()
+local cloak = require "cloak"
 
-    vim.keymap.set("n", "<leader>dc", "<cmd>CloakDisable<CR>", { desc = "Disable Cloak" })
-    vim.keymap.set("n", "<leader>de", "<cmd>CloakEnable<CR>", { desc = "Enable Cleak" })
-  end,
-}
+cloak.setup()
+
+vim.keymap.set("n", "<leader>dc", "<cmd>CloakDisable<CR>", { desc = "Disable Cloak" })
+vim.keymap.set("n", "<leader>de", "<cmd>CloakEnable<CR>", { desc = "Enable Cleak" })

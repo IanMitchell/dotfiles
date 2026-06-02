@@ -1,32 +1,30 @@
-return {
-  {
-    "brenoprata10/nvim-highlight-colors",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      ---Render style
-      ---@usage 'background'|'foreground'|'virtual'
-      render = "background",
+vim.pack.add({
+  { name = "nvim-highlight-colors", src = "https://github.com/brenoprata10/nvim-highlight-colors" },
+}, { confirm = false, load = true })
 
-      ---Highlight hex colors, e.g. '#FFFFFF'
-      enable_hex = true,
+require("nvim-highlight-colors").setup {
+  ---Render style
+  ---@usage 'background'|'foreground'|'virtual'
+  render = "background",
 
-      ---Highlight short hex colors e.g. '#fff'
-      enable_short_hex = true,
+  ---Highlight hex colors, e.g. '#FFFFFF'
+  enable_hex = true,
 
-      ---Highlight rgb colors, e.g. 'rgb(0 0 0)'
-      enable_rgb = true,
+  ---Highlight short hex colors e.g. '#fff'
+  enable_short_hex = true,
 
-      ---Highlight hsl colors, e.g. 'hsl(150deg 30% 40%)'
-      enable_hsl = true,
+  ---Highlight rgb colors, e.g. 'rgb(0 0 0)'
+  enable_rgb = true,
 
-      ---Highlight CSS variables, e.g. 'var(--testing-color)'
-      enable_var_usage = true,
+  ---Highlight hsl colors, e.g. 'hsl(150deg 30% 40%)'
+  enable_hsl = true,
 
-      ---Highlight named colors, e.g. 'green'
-      enable_named_colors = true,
+  ---Highlight CSS variables, e.g. 'var(--testing-color)'
+  enable_var_usage = true,
 
-      ---Highlight tailwind colors, e.g. 'bg-blue-500'
-      enable_tailwind = true,
-    },
-  },
+  ---Highlight named colors, e.g. 'green'
+  enable_named_colors = true,
+
+  ---Highlight tailwind colors, e.g. 'bg-blue-500'
+  enable_tailwind = true,
 }
