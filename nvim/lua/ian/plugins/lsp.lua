@@ -1,9 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPost" },
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason.nvim",
+    "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
@@ -49,9 +49,7 @@ return {
       },
       html = {},
       jsonls = {},
-      tailwindcss = {
-        filetypes = { "typescriptreact", "javascriptreact", "html", "svelte" },
-      },
+      tailwindcss = {},
       lua_ls = {},
       ts_ls = {
         settings = {
@@ -61,10 +59,10 @@ return {
         },
       },
       ruby_lsp = {
+        cmd = { "mise", "x", "--", "ruby-lsp" },
         init_options = {
           formatter = "standard",
           linters = { "standard" },
-          cmd = { "mise x -- ruby-lsp" },
         },
       },
     }
@@ -81,11 +79,17 @@ return {
       start_delay = 3000,
       debounce_hours = 12,
     }
-    mason_lspconfig.setup()
+    mason_lspconfig.setup {
+      automatic_enable = false,
+    }
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
+        if vim.lsp.document_color then
+          vim.lsp.document_color.enable(false, { bufnr = ev.buf })
+        end
+
         local opts = { buffer = ev.buf, silent = true }
 
         opts.desc = "Show LSP references"
@@ -113,45 +117,57 @@ return {
         vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 
         opts.desc = "Go to previous diagnostic"
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+        vim.keymap.set("n", "[d", function()
+          vim.diagnostic.jump { count = -1 }
+        end, opts)
 
         opts.desc = "Go to next diagnostic"
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+        vim.keymap.set("n", "]d", function()
+          vim.diagnostic.jump { count = 1 }
+        end, opts)
 
         opts.desc = "Show documentation for what is under cursor"
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
         opts.desc = "Restart LSP"
-        vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+        vim.keymap.set("n", "<leader>rs", function()
+          if vim.fn.exists ":lsp" == 2 then
+            vim.cmd "lsp restart"
+          else
+            vim.cmd "LspRestart"
+          end
+        end, opts)
       end,
     })
 
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
+    vim.lsp.config("*", {
+      capabilities = require("blink.cmp").get_lsp_capabilities(nil, true),
+    })
 
     local signs = {
-      Error = " ",
-      Warn = " ",
-      Hint = "󰠠 ",
-      Info = " ",
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = "󰠠 ",
+      [vim.diagnostic.severity.INFO] = " ",
     }
 
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
+    vim.diagnostic.config {
+      signs = { text = signs },
+    }
+
+    local enabled_servers = {}
 
     for name, config in pairs(lsp_servers) do
-      require("lspconfig")[name].setup {
-        autostart = config.autostart,
-        cmd = config.cmd,
-        capabilities = capabilities,
-        filetypes = config.filetypes,
-        handlers = config.handlers,
-        settings = config.settings,
-        root_dir = config.root_dir,
-        init_options = config.init_options,
-        experimental = config.experimental,
-      }
+      local enabled = config.autostart ~= false
+      config.autostart = nil
+
+      vim.lsp.config(name, config)
+
+      if enabled then
+        table.insert(enabled_servers, name)
+      end
     end
+
+    vim.lsp.enable(enabled_servers)
   end,
 }
