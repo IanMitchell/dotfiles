@@ -19,6 +19,10 @@ vim.opt.guicursor = ""
 -- Enable cursor line highlight
 vim.opt.cursorline = true
 
+-- Disable signs when incrementing/decrementing
+-- https://pawelgrzybek.com/vim-tip-more-intuitive-ctrl-a-adding-and-ctrl-x-subtracting/
+vim.o.nrformats = "unsigned"
+
 -- Disable showing the mode below the statusline
 vim.opt.showmode = false
 

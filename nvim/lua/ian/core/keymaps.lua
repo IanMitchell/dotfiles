@@ -39,8 +39,5 @@ end, { desc = "Delete current buffer and file" })
 
 -- Toggle autocomplete
 vim.keymap.set("n", "<leader>ta", function()
-  local cmp = require "cmp"
-  cmp.setup.buffer {
-    enabled = not cmp.get_config().enabled,
-  }
+  vim.b.completion = vim.b.completion == false
 end, { desc = "[T]oggle [A]utocomplete" })

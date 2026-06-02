@@ -5,12 +5,11 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/lazydev.nvim", opts = {} },
   },
   config = function()
-    local cmp_nvim_lsp = require "cmp_nvim_lsp"
     local mason = require "mason"
     local mason_lspconfig = require "mason-lspconfig"
     local mason_tool_installer = require "mason-tool-installer"
@@ -127,8 +126,7 @@ return {
       end,
     })
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     local signs = {
       Error = " ",
