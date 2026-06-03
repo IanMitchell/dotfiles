@@ -1,10 +1,3 @@
-vim.pack.add({
-  { name = "nvim-web-devicons", src = "https://github.com/nvim-tree/nvim-web-devicons" },
-  { name = "trouble.nvim", src = "https://github.com/folke/trouble.nvim" },
-  { name = "nvim-lint", src = "https://github.com/mfussenegger/nvim-lint" },
-  { name = "lualine.nvim", src = "https://github.com/nvim-lualine/lualine.nvim" },
-}, { confirm = false, load = true })
-
 local lualine = require "lualine"
 local trouble = require "trouble"
 
@@ -39,7 +32,7 @@ end
 
 lualine.setup {
   options = {
-    theme = theme,
+    theme = theme(),
     globalstatus = true,
     component_separators = { left = "", right = "" },
     section_separators = { left = "█", right = "█" },

@@ -1,7 +1,3 @@
-vim.pack.add({
-  { name = "nvim-lint", src = "https://github.com/mfussenegger/nvim-lint" },
-}, { confirm = false, load = true })
-
 local lint = require "lint"
 
 lint.linters_by_ft = {

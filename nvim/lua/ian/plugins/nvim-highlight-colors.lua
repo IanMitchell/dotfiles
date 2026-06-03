@@ -1,7 +1,3 @@
-vim.pack.add({
-  { name = "nvim-highlight-colors", src = "https://github.com/brenoprata10/nvim-highlight-colors" },
-}, { confirm = false, load = true })
-
 require("nvim-highlight-colors").setup {
   ---Render style
   ---@usage 'background'|'foreground'|'virtual'

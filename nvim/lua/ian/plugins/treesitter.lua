@@ -1,9 +1,3 @@
-vim.pack.add({
-  { name = "nvim-treesitter", src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  { name = "nvim-treesitter-textobjects", src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-  { name = "nvim-treesitter-context", src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
-}, { confirm = false, load = true })
-
 local treesitter = require "nvim-treesitter.configs"
 
 ---@diagnostic disable-next-line: missing-fields
@@ -11,7 +5,7 @@ treesitter.setup {
   highlight = {
     enable = true,
   },
-  ident = {
+  indent = {
     enable = true,
   },
   autopairs = {
@@ -50,41 +44,40 @@ treesitter.setup {
       node_decremental = "<bs>",
     },
   },
-  -- textobjects = {
-  --   select = {
-  --     enable = true,
-  --     lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-  --     keymaps = {
-  --       -- You can use the capture groups defined in textobjects.scm
-  --       ["aa"] = "@parameter.outer",
-  --       ["ia"] = "@parameter.inner",
-  --       ["af"] = "@function.outer",
-  --       ["if"] = "@function.inner",
-  --       ["ac"] = "@class.outer",
-  --       ["ic"] = "@class.inner",
-  --     },
-  --   },
-  --   move = {
-  --     enable = true,
-  --     set_jumps = true, -- whether to set jumps in the jumplist
-  --     goto_next_start = {
-  --       ["]m"] = "@function.outer",
-  --       ["]]"] = "@class.outer",
-  --     },
-  --     goto_next_end = {
-  --       ["]M"] = "@function.outer",
-  --       ["]["] = "@class.outer",
-  --     },
-  --     goto_previous_start = {
-  --       ["[m"] = "@function.outer",
-  --       ["[["] = "@class.outer",
-  --     },
-  --     goto_previous_end = {
-  --       ["[M"] = "@function.outer",
-  --       ["[]"] = "@class.outer",
-  --     },
-  --   },
-  -- },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["aa"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+    --   move = {
+    --     enable = true,
+    --     set_jumps = true, -- whether to set jumps in the jumplist
+    --     goto_next_start = {
+    --       ["]m"] = "@function.outer",
+    --       ["]]"] = "@class.outer",
+    --     },
+    --     goto_next_end = {
+    --       ["]M"] = "@function.outer",
+    --       ["]["] = "@class.outer",
+    --     },
+    --     goto_previous_start = {
+    --       ["[m"] = "@function.outer",
+    --       ["[["] = "@class.outer",
+    --     },
+    --     goto_previous_end = {
+    --       ["[M"] = "@function.outer",
+    --       ["[]"] = "@class.outer",
+    --     },
+    --   },
+  },
 }
 
 require("treesitter-context").setup {

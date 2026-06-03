@@ -1,7 +1,3 @@
-vim.pack.add({
-  { name = "cloak.nvim", src = "https://github.com/laytan/cloak.nvim" },
-}, { confirm = false, load = true })
-
 local cloak = require "cloak"
 
 cloak.setup()

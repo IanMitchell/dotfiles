@@ -1,8 +1,3 @@
-vim.pack.add({
-  { name = "onedark.nvim", src = "https://github.com/navarasu/onedark.nvim" },
-  { name = "onehalf", src = "https://github.com/sonph/onehalf" },
-}, { confirm = false, load = true })
-
 if vim.o.background == "dark" then
   local theme = require "onedark"
   theme.setup {

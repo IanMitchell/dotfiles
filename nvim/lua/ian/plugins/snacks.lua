@@ -1,7 +1,3 @@
-vim.pack.add({
-  { name = "snacks.nvim", src = "https://github.com/folke/snacks.nvim" },
-}, { confirm = false, load = true })
-
 require("snacks").setup {
   bigfile = { enabled = true },
   gitbrowse = {
@@ -84,9 +80,9 @@ vim.keymap.set("n", "<leader>bd", function()
   Snacks.bufdelete()
 end, { desc = "[B]uffer [D]elete" })
 
-vim.keymap.set({ "n", "v" }, "<leader>og", function()
+vim.keymap.set({ "n", "v" }, "<leader>go", function()
   Snacks.gitbrowse()
-end, { desc = "[O]pen [G]it" })
+end, { desc = "[G]it [O]pen" })
 
 vim.keymap.set("n", "<leader>dn", function()
   Snacks.notifier.hide()
@@ -123,7 +119,7 @@ vim.keymap.set("n", "<leader>tt", function()
   }):toggle()
 end, { desc = "[T]oggle [T]reesitter Context" })
 
-vim.keymap.set("n", "<leader>hl", function()
+vim.keymap.set("n", "<leader>th", function()
   local hc = require "nvim-highlight-colors"
   Snacks.toggle({
     name = "Highlight Colors",
@@ -138,4 +134,4 @@ vim.keymap.set("n", "<leader>hl", function()
       end
     end,
   }):toggle()
-end, { desc = "Toggle [H]igh[L]ight Colors" })
+end, { desc = "[T]oggle [H]ighlight Colors" })

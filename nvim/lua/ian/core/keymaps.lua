@@ -32,7 +32,14 @@ vim.keymap.set("n", "<leader>df", function()
   local confirm = vim.fn.confirm("Delete buffer and file?", "&Yes\n&No", 2)
 
   if confirm == 1 then
-    os.remove(vim.fn.expand "%")
+    local path = vim.fn.expand "%:p"
+    local ok, err = os.remove(path)
+
+    if not ok then
+      vim.notify("Failed to delete " .. path .. ": " .. err, vim.log.levels.ERROR)
+      return
+    end
+
     vim.api.nvim_buf_delete(0, { force = true })
   end
 end, { desc = "Delete current buffer and file" })

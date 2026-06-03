@@ -1,7 +1,3 @@
-vim.pack.add({
-  { name = "gitsigns.nvim", src = "https://github.com/lewis6991/gitsigns.nvim" },
-}, { confirm = false, load = true })
-
 require("gitsigns").setup {
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns

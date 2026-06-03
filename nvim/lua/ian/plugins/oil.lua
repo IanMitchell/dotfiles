@@ -1,17 +1,26 @@
-vim.pack.add({
-  { name = "nvim-web-devicons", src = "https://github.com/nvim-tree/nvim-web-devicons" },
-  { name = "oil.nvim", src = "https://github.com/stevearc/oil.nvim" },
-}, { confirm = false, load = true })
+local configured = false
 
-require("oil").setup {
-  default_file_explorer = false,
+local function setup_oil()
+  if configured then
+    return
+  end
 
-  view_options = {
-    show_hidden = true,
-  },
-}
+  vim.cmd.packadd "oil.nvim"
 
-vim.keymap.set("n", "<leader>do", function()
+  require("oil").setup {
+    default_file_explorer = false,
+
+    view_options = {
+      show_hidden = true,
+    },
+  }
+
+  configured = true
+end
+
+vim.keymap.set("n", "<leader>fo", function()
+  setup_oil()
+
   local current_dir = vim.fn.expand "%:p:h"
   require("oil").open_float(current_dir)
 end, { desc = "Open Oil" })

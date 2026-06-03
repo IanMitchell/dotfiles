@@ -1,13 +1,3 @@
-vim.pack.add({
-  { name = "blink.cmp", src = "https://github.com/saghen/blink.cmp", version = vim.version.range "1" },
-  { name = "mason.nvim", src = "https://github.com/mason-org/mason.nvim" },
-  { name = "mason-lspconfig.nvim", src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-  { name = "mason-tool-installer.nvim", src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
-  { name = "nvim-lspconfig", src = "https://github.com/neovim/nvim-lspconfig" },
-  { name = "nvim-lsp-file-operations", src = "https://github.com/antosha417/nvim-lsp-file-operations" },
-  { name = "lazydev.nvim", src = "https://github.com/folke/lazydev.nvim" },
-}, { confirm = false, load = true })
-
 require("lsp-file-operations").setup()
 require("lazydev").setup()
 
@@ -27,7 +17,6 @@ mason.setup {
 
 local lsp_servers = {
   bashls = {},
-  biome = {},
   cssls = {},
   html = {},
   jsonls = {},
@@ -116,7 +105,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
     opts.desc = "Show line diagnostics"
-    vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, opts)
 
     opts.desc = "Go to previous diagnostic"
     vim.keymap.set("n", "[d", function()
@@ -132,7 +121,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
     opts.desc = "Restart LSP"
-    vim.keymap.set("n", "<leader>rs", function()
+    vim.keymap.set("n", "<leader>lr", function()
       if vim.fn.exists ":lsp" == 2 then
         vim.cmd "lsp restart"
       else

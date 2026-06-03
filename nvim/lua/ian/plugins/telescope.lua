@@ -1,12 +1,3 @@
-vim.pack.add({
-  { name = "plenary.nvim", src = "https://github.com/nvim-lua/plenary.nvim" },
-  { name = "nvim-web-devicons", src = "https://github.com/nvim-tree/nvim-web-devicons" },
-  { name = "todo-comments.nvim", src = "https://github.com/folke/todo-comments.nvim" },
-  { name = "telescope-fzf-native.nvim", src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
-  { name = "telescope-ui-select.nvim", src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
-  { name = "telescope.nvim", src = "https://github.com/nvim-telescope/telescope.nvim", version = "master" },
-}, { confirm = false, load = true })
-
 local telescope = require "telescope"
 local actions = require "telescope.actions"
 
@@ -21,8 +12,8 @@ telescope.setup {
       },
     },
   },
-  ["ui-select"] = {
-    require("telescope.themes").get_dropdown {},
+  extensions = {
+    ["ui-select"] = require("telescope.themes").get_dropdown {},
   },
 }
 

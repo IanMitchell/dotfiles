@@ -1,8 +1,3 @@
-vim.pack.add({
-  { name = "nvim-highlight-colors", src = "https://github.com/brenoprata10/nvim-highlight-colors" },
-  { name = "blink.cmp", src = "https://github.com/saghen/blink.cmp", version = vim.version.range "1" },
-}, { confirm = false, load = true })
-
 require("blink.cmp").setup {
   keymap = {
     preset = "none",

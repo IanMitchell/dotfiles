@@ -1,12 +1,4 @@
-vim.pack.add({
-  { name = "nvim-web-devicons", src = "https://github.com/nvim-tree/nvim-web-devicons" },
-  { name = "nvim-tree.lua", src = "https://github.com/nvim-tree/nvim-tree.lua" },
-}, { confirm = false, load = true })
-
 local nvimtree = require "nvim-tree"
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 nvimtree.setup {
   view = {
@@ -60,6 +52,10 @@ vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh 
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   callback = function()
+    if vim.fn.argc() ~= 0 then
+      return
+    end
+
     local tree = require "nvim-tree.api"
     tree.tree.open()
   end,

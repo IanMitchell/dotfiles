@@ -1,26 +1,34 @@
-vim.pack.add({
-  { name = "nvim-web-devicons", src = "https://github.com/nvim-tree/nvim-web-devicons" },
-  { name = "todo-comments.nvim", src = "https://github.com/folke/todo-comments.nvim" },
-  { name = "trouble.nvim", src = "https://github.com/folke/trouble.nvim" },
-}, { confirm = false, load = true })
+local configured = false
 
-require("trouble").setup {
-  warn_no_results = false,
-  open_no_results = true,
-}
+local function setup_trouble()
+  if configured then
+    return
+  end
 
-vim.keymap.set(
-  "n",
-  "<leader>xw",
-  "<cmd>Trouble diagnostics toggle<CR>",
-  { desc = "Open trouble workspace diagnostics" }
-)
+  vim.cmd.packadd "trouble.nvim"
+
+  require("trouble").setup {
+    warn_no_results = false,
+    open_no_results = true,
+  }
+
+  configured = true
+end
+
+local function trouble(command)
+  return function()
+    setup_trouble()
+    vim.cmd("Trouble " .. command)
+  end
+end
+
+vim.keymap.set("n", "<leader>xw", trouble "diagnostics toggle", { desc = "Open trouble workspace diagnostics" })
 vim.keymap.set(
   "n",
   "<leader>xd",
-  "<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
+  trouble "diagnostics toggle filter.buf=0",
   { desc = "Open trouble document diagnostics" }
 )
-vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix toggle<CR>", { desc = "Open trouble quickfix list" })
-vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", { desc = "Open trouble location list" })
-vim.keymap.set("n", "<leader>xt", "<cmd>Trouble todo toggle<CR>", { desc = "Open todos in trouble" })
+vim.keymap.set("n", "<leader>xq", trouble "quickfix toggle", { desc = "Open trouble quickfix list" })
+vim.keymap.set("n", "<leader>xl", trouble "loclist toggle", { desc = "Open trouble location list" })
+vim.keymap.set("n", "<leader>xt", trouble "todo toggle", { desc = "Open todos in trouble" })

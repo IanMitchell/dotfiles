@@ -1,7 +1,3 @@
-vim.pack.add({
-  { name = "which-key.nvim", src = "https://github.com/folke/which-key.nvim" },
-}, { confirm = false, load = true })
-
 vim.o.timeout = true
 vim.o.timeoutlen = 500
 
