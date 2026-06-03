@@ -1,0 +1,94 @@
+{
+  "version": 3,
+  "skills": {
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "c2f31172b6f256272305a5e6e7228b258446899f",
+      "installedAt": "2026-01-28T21:21:42.630Z",
+      "updatedAt": "2026-01-28T21:21:42.630Z"
+    },
+    "vercel-composition-patterns": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/composition-patterns/SKILL.md",
+      "skillFolderHash": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
+      "installedAt": "2026-03-30T23:01:18.913Z",
+      "updatedAt": "2026-03-30T23:01:18.913Z"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "skillFolderHash": "8742a4cab28092d0de41acbd817e6935e8192569",
+      "installedAt": "2026-03-30T23:01:19.420Z",
+      "updatedAt": "2026-03-30T23:01:19.420Z"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "skillFolderHash": "3116f3e62dbd02b44a598b1aa690d2a8938e8f89",
+      "installedAt": "2026-03-30T23:01:19.823Z",
+      "updatedAt": "2026-03-30T23:01:19.823Z"
+    },
+    "mysql": {
+      "source": "planetscale/database-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/planetscale/database-skills.git",
+      "skillPath": "skills/mysql/SKILL.md",
+      "skillFolderHash": "a2d3f6d189cb2847d659da7108b399df9ac08875",
+      "installedAt": "2026-04-17T22:59:14.770Z",
+      "updatedAt": "2026-04-17T22:59:14.770Z"
+    },
+    "neki": {
+      "source": "planetscale/database-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/planetscale/database-skills.git",
+      "skillPath": "skills/neki/SKILL.md",
+      "skillFolderHash": "756900dc02bdcdc061ad4dd354488d192271a8c7",
+      "installedAt": "2026-04-17T22:59:15.137Z",
+      "updatedAt": "2026-04-17T22:59:15.137Z"
+    },
+    "postgres": {
+      "source": "planetscale/database-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/planetscale/database-skills.git",
+      "skillPath": "skills/postgres/SKILL.md",
+      "skillFolderHash": "d88c9e1d9ef50949b8ce4fde20629a31378afe8e",
+      "installedAt": "2026-04-17T22:59:15.531Z",
+      "updatedAt": "2026-04-17T22:59:15.531Z"
+    },
+    "vitess": {
+      "source": "planetscale/database-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/planetscale/database-skills.git",
+      "skillPath": "skills/vitess/SKILL.md",
+      "skillFolderHash": "1a0ac50036893ad67d594c00f25ead6aed27c8e0",
+      "installedAt": "2026-04-17T22:59:15.875Z",
+      "updatedAt": "2026-04-17T22:59:15.875Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "firebender",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode",
+    "warp"
+  ]
+}
