@@ -49,9 +49,9 @@ vim.pack.add({
   { name = "nvim-lspconfig", src = gh "neovim/nvim-lspconfig" },
   { name = "nvim-surround", src = gh "kylechui/nvim-surround" },
   { name = "nvim-tree.lua", src = gh "nvim-tree/nvim-tree.lua" },
-  { name = "nvim-treesitter", src = gh "nvim-treesitter/nvim-treesitter" },
+  { name = "nvim-treesitter", src = gh "nvim-treesitter/nvim-treesitter", version = "master" },
   { name = "nvim-treesitter-context", src = gh "nvim-treesitter/nvim-treesitter-context" },
-  { name = "nvim-treesitter-textobjects", src = gh "nvim-treesitter/nvim-treesitter-textobjects" },
+  { name = "nvim-treesitter-textobjects", src = gh "nvim-treesitter/nvim-treesitter-textobjects", version = "master" },
   { name = "nvim-ts-autotag", src = gh "windwp/nvim-ts-autotag" },
   { name = "nvim-ufo", src = gh "kevinhwang91/nvim-ufo" },
   { name = "nvim-web-devicons", src = gh "nvim-tree/nvim-web-devicons" },
@@ -78,6 +78,10 @@ vim.pack.add({
   { name = "tsc.nvim", src = gh "dmmulroy/tsc.nvim" },
   { name = "vim-maximizer", src = gh "szw/vim-maximizer" },
 }, { confirm = false, load = false })
+
+vim.api.nvim_create_user_command("PackUpdate", function()
+  vim.pack.update()
+end, {})
 
 require "ian.plugins.colorscheme"
 require "ian.plugins.snacks"

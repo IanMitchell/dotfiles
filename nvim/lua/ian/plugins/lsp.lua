@@ -20,7 +20,14 @@ local lsp_servers = {
   cssls = {},
   html = {},
   jsonls = {},
-  tailwindcss = {},
+  tailwindcss = {
+    settings = {
+      tailwindCSS = {
+        classFunctions = { "classNames", "clsx", "cn", "cva", "cx", "tw", "twJoin", "twMerge", "tv" },
+        colorDecorators = true,
+      },
+    },
+  },
   lua_ls = {},
   oxlint = {
     mason = false,
