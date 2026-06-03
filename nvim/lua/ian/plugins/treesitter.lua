@@ -11,9 +11,6 @@ treesitter.setup {
   autopairs = {
     enable = true,
   },
-  autotags = {
-    enable = true,
-  },
   ensure_installed = {
     "bash",
     "css",

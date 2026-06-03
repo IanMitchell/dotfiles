@@ -77,10 +77,6 @@ mason_lspconfig.setup {
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
-    if vim.lsp.document_color then
-      vim.lsp.document_color.enable(false, { bufnr = ev.buf })
-    end
-
     local opts = { buffer = ev.buf, silent = true }
 
     opts.desc = "Show LSP references"
