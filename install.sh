@@ -87,6 +87,9 @@ link_config "$DIR/gitconfig" "$HOME/.gitconfig"
 echo "Configuring opencode"
 link_config "$DIR/opencode" "$HOME/.config/opencode"
 
+echo "Configuring Zed"
+link_config "$DIR/zed/settings.json" "$HOME/.config/zed/settings.json"
+
 # Nushell is deprecated and unused. Keep this disabled unless it becomes active again.
 # echo "Copying config.nu"
 # link_config "$DIR/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
