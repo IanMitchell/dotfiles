@@ -3,6 +3,11 @@ if type -q bat
 	functions -e cat
 
 	function cat --wraps bat
-		command bat -pp --theme="Monokai Extended Bright" $argv
+		set -l theme "Monokai Extended Bright"
+		if test "$fish_terminal_color_theme" = light
+			set theme "Monokai Extended Light"
+		end
+
+		command bat -pp --theme="$theme" $argv
 	end
 end
