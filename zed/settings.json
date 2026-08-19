@@ -17,9 +17,11 @@
     }
   },
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
+    "auto_fold_dirs": false
   },
   "outline_panel": {
+    "auto_fold_dirs": false,
     "dock": "left"
   },
   "collaboration_panel": {

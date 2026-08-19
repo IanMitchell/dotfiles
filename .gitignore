@@ -1,1 +1,11 @@
 fish/fish_variables
+
+# Pi credentials and machine-local runtime data
+.pi/agent/auth.json
+.pi/agent/models.json
+.pi/agent/models-store.json
+.pi/agent/sessions/
+.pi/agent/trust.json
+.pi/agent/git/
+.pi/agent/npm/
+.pi/agent/pi-debug.log

@@ -90,6 +90,12 @@ link_config "$DIR/opencode" "$HOME/.config/opencode"
 echo "Configuring Zed"
 link_config "$DIR/zed/settings.json" "$HOME/.config/zed/settings.json"
 
+echo "Configuring Herdr"
+link_config "$DIR/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+
+echo "Configuring Hunk"
+link_config "$DIR/hunk/config.toml" "$HOME/.config/hunk/config.toml"
+
 # Nushell is deprecated and unused. Keep this disabled unless it becomes active again.
 # echo "Copying config.nu"
 # link_config "$DIR/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
