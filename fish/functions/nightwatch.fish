@@ -21,15 +21,16 @@ function nightwatch --description "Keep macOS awake while displays sleep"
 
     set -l user_id (id -u)
     set -l pid_file "$runtime_dir/nightwatch-$user_id.pid"
+    set -l timeout_seconds 43200
     set -l caffeinate_pid
     set -l active 0
 
     if test -f "$pid_file"
-        read -l caffeinate_pid <"$pid_file"
+        read caffeinate_pid <"$pid_file"
 
         if string match -qr '^[0-9]+$' -- "$caffeinate_pid"
             set -l process_command (ps -p "$caffeinate_pid" -o command= 2>/dev/null | string trim)
-            if test "$process_command" = "/usr/bin/caffeinate -i"
+            if contains -- "$process_command" "/usr/bin/caffeinate -i" "/usr/bin/caffeinate -i -t $timeout_seconds"
                 set active 1
             end
         end
@@ -42,20 +43,24 @@ function nightwatch --description "Keep macOS awake while displays sleep"
 
     switch $action
         case on
-            set -l started 0
+            if test $active -eq 1
+                if not command kill $caffeinate_pid
+                    echo "nightwatch: failed to replace caffeinate process $caffeinate_pid" >&2
+                    return 1
+                end
 
-            if test $active -eq 0
-                /usr/bin/caffeinate -i &
-                set caffeinate_pid $last_pid
-                disown $caffeinate_pid
-                printf '%s\n' $caffeinate_pid >"$pid_file"
-                set started 1
+                command rm -f "$pid_file"
             end
+
+            /usr/bin/caffeinate -i -t $timeout_seconds &
+            set caffeinate_pid $last_pid
+            disown $caffeinate_pid
+            printf '%s\n' $caffeinate_pid >"$pid_file"
 
             /usr/bin/pmset displaysleepnow
             set -l display_status $status
 
-            if test $display_status -ne 0; and test $started -eq 1
+            if test $display_status -ne 0
                 command kill $caffeinate_pid 2>/dev/null
                 command rm -f "$pid_file"
             end
@@ -85,7 +90,7 @@ function nightwatch --description "Keep macOS awake while displays sleep"
 
         case -h --help
             echo "Usage: nightwatch [on|off|status]"
-            echo "Keep macOS awake while putting attached displays to sleep."
+            echo "Keep macOS awake for up to 12 hours while putting attached displays to sleep."
 
         case '*'
             echo "nightwatch: unknown action '$action'" >&2
